@@ -1,0 +1,72 @@
+{% block swag_migration_wizard %}
+    <div class="swag-migration-wizard">
+        <sw-modal v-if="showModal"
+                  class="swag-migration-wizard__modal"
+                  :size="modalSize"
+                  :title="$tc(modalTitleSnippet)"
+                  :isLoading="isLoading"
+                  @modal-close="onCloseModal">
+
+            {% block swag_migration_wizard_placeholder %}
+                <div class="swag-migration-wizard__placeholder" v-show="isLoading || childIsLoading"></div>
+            {% endblock %}
+
+            {% block swag_migration_router_view %}
+                <router-view
+                        v-show="!isLoading && !childIsLoading"
+                        :currentConnectionId="connection.id"
+                        :profileInformationComponent="profileInformationComponent"
+                        :credentialsComponent="credentialsComponent"
+                        :credentials="connection.credentialFields"
+                        :errorMessageSnippet="errorMessageSnippet"
+                        :connectionNameErrorCode="connectionNameErrorCode"
+                        @onChildRouteReadyChanged="onChildRouteReadyChanged"
+                        @onTriggerPrimaryClick="triggerPrimaryClick"
+                        @onProfileSelected="onProfileSelected"
+                        @onChangeConnectionName="onChangeConnectionName"
+                        @onConnectionSelected="onConnectionSelected"
+                        @onCredentialsChanged="onCredentialsChanged"
+                        @onIsLoadingChanged="onChildIsLoadingChanged">
+                </router-view>
+            {% endblock %}
+
+            <template #modal-footer class="swag-migration-wizard__footer">
+                {% block swag_migration_wizard_footer %}
+
+                    {% block swag_migration_wizard_arrow %}
+                        <div class="swag-migration-wizard__left-actions">
+                            <sw-button class="swag-migration-wizard__buttonBack"
+                                       size="small"
+                                       v-show="buttonBackVisible"
+                                       @click="onButtonBackClick">
+                                {{ $tc(buttonBackSnippet) }}
+                            </sw-button>
+                        </div>
+                    {% endblock %}
+
+                    {% block swag_migration_wizard_actions %}
+                        <div class="swag-migration-wizard__right-actions">
+                            {% block swag_migration_wizard_actions_previous %}
+                                <sw-button v-show="buttonSecondaryVisible"
+                                           size="small"
+                                           @click="onButtonSecondaryClick">
+                                    {{ $tc(buttonSecondarySnippet) }}
+                                </sw-button>
+                            {% endblock %}
+                            {% block swag_migration_wizard_actions_next %}
+                                <sw-button size="small"
+                                           variant="primary"
+                                           @click="onButtonPrimaryClick"
+                                           :disabled="buttonPrimaryDisabled"
+                                           ref="primaryButton">
+                                    {{ $tc(buttonPrimarySnippet) }}
+                                </sw-button>
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                {% endblock %}
+            </template>
+
+        </sw-modal>
+    </div>
+{% endblock %}

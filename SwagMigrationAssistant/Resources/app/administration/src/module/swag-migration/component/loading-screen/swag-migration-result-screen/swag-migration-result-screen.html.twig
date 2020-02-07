@@ -1,0 +1,29 @@
+{% block swag_migration_result_screen %}
+    <sw-card class="swag-migration-result-screen">
+        {% block swag_migration_result_screen_content %}
+            <div class="swag-migration-result-screen__content">
+                {% block swag_migration_result_screen_icon %}
+                    <div class="swag-migration-result-screen__bubble">
+                        <sw-icon size="36px" class="swag-migration-result-screen__icon" name="default-action-thumb-up" decorative></sw-icon>
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_result_screen_title %}
+                    <div class="swag-migration-result-screen__title">
+                        {{ $tc('swag-migration.index.loadingScreenCard.result.title') }}
+                    </div>
+                    <div class="swag-migration-result-screen__caption">
+                        {{ $tc('swag-migration.index.loadingScreenCard.result.caption') }}
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_result_screen_link %}
+                    <router-link class="swag-migration-result-screen__link"
+                                 :to="{ name: 'swag.migration.index.history.detail', params: { id: runId } }">
+                        {{ $tc('swag-migration.index.loadingScreenCard.result.historyLink') }}
+                    </router-link>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </sw-card>
+{% endblock %}

@@ -1,0 +1,6 @@
+.idea/
+coverage/
+.phpunit.result.cache
+vendor
+phpstan.neon
+*.hot-update.js

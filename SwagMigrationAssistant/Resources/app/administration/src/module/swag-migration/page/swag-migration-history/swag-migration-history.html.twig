@@ -1,0 +1,92 @@
+{% block swag_migration_history %}
+    <sw-card class="swag-migration-history"
+             :isLoading="isLoading"
+             :large="true">
+        <template #grid>
+            {% block swag_migration_history_grid %}
+                <sw-data-grid v-if="migrationRuns.length > 0"
+                              identifier="swag-migration-history"
+                              :dataSource="migrationRuns"
+                              :columns="migrationColumns"
+                              :showSelection="false"
+                              :showSettings="true"
+                              :allowColumnEdit="true"
+                              :sortBy="sortBy"
+                              :sortDirection="sortDirection"
+                              @column-sort="onSortColumn">
+                    {% block swag_migration_history_grid_column_status %}
+                        <template #column-status="{ item }">
+                            <sw-icon v-if="item.status === 'finished'"
+                                     name="default-basic-checkmark-line"
+                                     size="16px"
+                                     class="swag-migration-history__status-icon swag-migration-history__status-icon--finished">
+                            </sw-icon>
+                            <sw-icon v-else-if="item.status === 'aborted'"
+                                     name="default-basic-x-line"
+                                     size="16px"
+                                     class="swag-migration-history__status-icon swag-migration-history__status-icon--aborted">
+                            </sw-icon>
+                            <sw-icon v-else-if="item.status === 'running'"
+                                     name="default-basic-shape-circle"
+                                     size="16px"
+                                     class="swag-migration-history__status-icon swag-migration-history__status-icon--loading">
+                            </sw-icon>
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_column_profile %}
+                        <template #column-connection.profile="{ item }">
+                            {{ item.connection.profileName }} /
+                            {{ item.connection.gatewayName }}
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_column_createdAt %}
+                        <template #column-createdAt="{ item }">
+                            {{ item.createdAt | date(migrationDateOptions) }}
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_column_sourceSystemName %}
+                        <template #column-environmentInformation.sourceSystemName="{ item }">
+                            {{ item.environmentInformation.sourceSystemName }}
+                            {{ item.environmentInformation.sourceSystemVersion }}
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_column_selectedData %}
+                        <template #column-progress="{ item }">
+                            <swag-migration-history-selected-data :entityGroups="item.progress">
+                            </swag-migration-history-selected-data>
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_actions %}
+                        <template #actions="{ item }">
+                            <sw-context-menu-item :routerLink="{ name: 'swag.migration.index.history.detail', params:{ id:item.id } }">
+                                {{ $tc('swag-migration.history.contextMenu.details') }}
+                            </sw-context-menu-item>
+                        </template>
+                    {% endblock %}
+                    {% block swag_migration_history_grid_pagination %}
+                        <template #pagination>
+                                <sw-pagination :page="page"
+                                               :limit="limit"
+                                               :total="total"
+                                               :total-visible="7"
+                                                @page-change="onPageChange">
+                                </sw-pagination>
+                        </template>
+                    {% endblock %}
+                </sw-data-grid>
+            {% endblock %}
+
+            {% block swag_migration_history_no_data %}
+                <div class="swag-migration-history__no-data" v-if="migrationRuns.length === 0">
+                    <p class="swag-migration-history__no-data-label">
+                        {{ $tc('swag-migration.history.noData') }}
+                    </p>
+                </div>
+            {% endblock %}
+
+            {% block swag_migration_history_router_view %}
+                <router-view></router-view>
+            {% endblock %}
+        </template>
+    </sw-card>
+{% endblock %}

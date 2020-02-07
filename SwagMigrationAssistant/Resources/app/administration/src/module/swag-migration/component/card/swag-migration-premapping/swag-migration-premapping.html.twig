@@ -1,0 +1,119 @@
+{% block swag_migration_premapping %}
+    <div class="swag-migration-premapping">
+        {% block swag_migration_premapping_unfilled_alert %}
+            <sw-alert variant="error"
+                      v-if="!isLoading && !premappingValid"
+                      class="swag-migration-premapping__alert">
+                {{ $tc('swag-migration.index.premappingCard.unfilledAlert') }}
+            </sw-alert>
+        {% endblock %}
+
+        {% block swag_migration_premapping_unfilled_card %}
+            <sw-card class="swag-migration-premapping__unfilled-card"
+                     v-if="!isLoading && !premappingValid">
+                {% block swag_migration_premapping_unfilled_title %}
+                    <div class="swag-migration-premapping__unfilled-title">
+                        {{ $t('swag-migration.index.premappingCard.unfilledTitle') }}
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_premapping_unfilled_caption %}
+                    <div class="swag-migration-premapping__unfilled-caption">
+                        {{ $t('swag-migration.index.premappingCard.unfilledCaption') }}
+                    </div>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+
+        {% block swag_migration_premapping_success_card %}
+            <sw-card class="swag-migration-premapping__success-card"
+                     v-if="!isLoading && premappingValid">
+                {% block swag_migration_premapping_success_bubble %}
+                    <div class="swag-migration-premapping__success-bubble">
+                        <sw-icon size="36px"
+                                 class="swag-migration-premapping__success-icon"
+                                 name="default-basic-checkmark-line"
+                                 decorative>
+                        </sw-icon>
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_premapping_success_title %}
+                    <div class="swag-migration-premapping__success-title">
+                        {{ $t('swag-migration.index.premappingCard.validTitle') }}
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_premapping_success_caption %}
+                    <div class="swag-migration-premapping__success-caption">
+                        {{ $t('swag-migration.index.premappingCard.validCaption') }}
+                    </div>
+                {% endblock %}
+            </sw-card>
+        {% endblock %}
+
+        {% block swag_migration_premapping_unfilled_mapping %}
+            <swag-migration-tab-card class="swag-migration-premapping__tab-card"
+                                     v-if="displayUnfilledPremapping"
+                                     :title="$tc('swag-migration.index.premappingCard.unfilledCardTitle')">
+                <swag-migration-tab-card-item v-for="group in migrationUIStore.state.unfilledPremapping"
+                                              :key="group.entity"
+                                              :title="$tc(`swag-migration.index.premappingCard.group.${group.entity}`)"
+                                              :isGrid="true"
+                                              :errorBadgeNumber="getErrorCountForGroupTab(group)"
+                                              class="swag-migration-premapping__tab-card-item">
+                    <swag-migration-grid-selection :choices="group.choices"
+                                                   :mapping="group.mapping"
+                                                   @input="validatePremapping">
+                    </swag-migration-grid-selection>
+                </swag-migration-tab-card-item>
+            </swag-migration-tab-card>
+        {% endblock %}
+
+        {% block swag_migration_premapping_expand_div %}
+            <swag-migration-expand-div class="swag-migration-premapping__expand-div"
+                                       :expandTitle="$tc('swag-migration.index.premappingCard.expandTitle')"
+                                       :collapseTitle="$tc('swag-migration.index.premappingCard.collapseTitle')"
+                                       v-if="!isLoading && displayFilledPremapping">
+                {% block swag_migration_premapping_filled_mapping %}
+                    <swag-migration-tab-card class="swag-migration-premapping__filled-tab-card swag-migration-premapping__tab-card"
+                                             v-if="displayFilledPremapping"
+                                             :title="$tc('swag-migration.index.premappingCard.filledCardTitle')">
+                        <swag-migration-tab-card-item v-for="group in migrationUIStore.state.filledPremapping"
+                                                      :key="group.entity"
+                                                      :title="$tc(`swag-migration.index.premappingCard.group.${group.entity}`)"
+                                                      :isGrid="true"
+                                                      :errorBadgeNumber="getErrorCountForGroupTab(group)"
+                                                      class="swag-migration-premapping__tab-card-item">
+                            <swag-migration-grid-selection :choices="group.choices"
+                                                           :mapping="group.mapping"
+                                                           @input="validatePremapping">
+                            </swag-migration-grid-selection>
+                        </swag-migration-tab-card-item>
+                    </swag-migration-tab-card>
+                {% endblock %}
+            </swag-migration-expand-div>
+        {% endblock %}
+
+        <sw-card class="swag-migration-premapping__loading-card"
+                 v-if="isLoading">
+            <div>
+                {% block swag_migration_premapping_loader %}
+                    <sw-loader class="swag-migration-premapping__loader"></sw-loader>
+                {% endblock %}
+
+                {% block swag_migration_premapping_loading_title %}
+                    <div class="swag-migration-premapping__loading-title">
+                        {{ $t('swag-migration.index.premappingCard.loadingTitle') }}
+                    </div>
+                {% endblock %}
+
+                {% block swag_migration_premapping_loading_caption %}
+                    <div class="swag-migration-premapping__loading-caption">
+                        {{ $t('swag-migration.index.premappingCard.loadingCaption') }}
+                    </div>
+                {% endblock %}
+            </div>
+        </sw-card>
+    </div>
+{% endblock %}

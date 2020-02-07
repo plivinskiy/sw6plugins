@@ -1,0 +1,88 @@
+@import "~scss/variables";
+
+.swag-migration-shop-information {
+
+    .swag-migration-shop-information__connection {
+        display: grid;
+        grid-gap: 8px;
+        grid-template-columns: (112px - 8px) 1fr min-content;
+
+        @media screen and (max-width: 650px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .swag-migration-shop-information__shop-domain {
+        font-size: $font-size-small;
+        white-space: nowrap;
+    }
+
+    .swag-migration-shop-information__shop-domain-prefix {
+        color: $color-gray-300;
+    }
+
+    .swag-migration-shop-information__shop-domain-prefix--is-ssl {
+        color: $color-emerald-500;
+    }
+
+    .swag-migration-shop-information__connection-name {
+        font-size: $font-size-large;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .swag-migration-shop-information__actions {
+        margin-top: 16px;
+
+        .sw-button {
+            margin-right: 8px;
+        }
+    }
+
+    .swag-migration-shop-information__connection-status {
+        white-space: nowrap;
+        max-width: unset;
+        display: inline-flex;
+    }
+
+    .swag-migration-shop-information__connection-status-dot {
+        margin: auto 6px auto auto;
+    }
+
+    .swag-migration-shop-information__connection-status-text {
+        margin: auto 0;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .swag-migration-shop-information__metadata {
+        color: $color-darkgray-200;
+        font-size: 14px;
+    }
+
+    .swag-migration-shop-information__metadata-columns {
+        dt {
+            padding: 8px 4px 4px 4px;
+        }
+
+        dd {
+            padding: 4px;
+        }
+    }
+}
+
+.swag-migration-shop-information__confirm-modal {
+    .sw-modal__body {
+        padding: 32px;
+    }
+
+    .swag-migration-shop-information__confirm-modal-content {
+        text-align: center;
+    }
+
+    .swag-migration-shop-information__confirm-modal-content-hint {
+        text-align: center;
+        padding-top: 32px;
+        font-weight: 600;
+    }
+}

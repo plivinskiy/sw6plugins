@@ -1,0 +1,32 @@
+{% block swag_migration_index_main_page %}
+    <div class="swag-migration-index-main-page">
+        {% block swag_migration_index_main_page_content %}
+            <div v-if="!migrationUIStore.state.isLoading">
+                {% block swag_migration_index_main_page_warnings %}
+                    <div class="swag-migration-index-main-page__warnings">
+                        <sw-alert v-for="warning in displayWarnings"
+                                  :key="warning.snippetKey"
+                                  class="swag-migration-index-main-page__warning"
+                                  variant="warning">
+                            {{ $tc(warning.snippetKey, warning.pluralizationCount, warning.snippetArguments) }}
+                        </sw-alert>
+                    </div>
+                {% endblock %}
+
+
+                {% block swag_migration_index_main_page_card_shopInformation %}
+                    <swag-migration-shop-information :connected="connectionEstablished">
+                    </swag-migration-shop-information>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block swag_migration_index_main_page_assistant %}
+            <swag-migration-assistant v-if="!migrationUIStore.state.isLoading"></swag-migration-assistant>
+        {% endblock %}
+
+        {% block swag_migration_index_main_page_loader %}
+            <sw-loader v-if="migrationUIStore.state.isLoading"></sw-loader>
+        {% endblock %}
+    </div>
+{% endblock %}

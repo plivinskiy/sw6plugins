@@ -1,0 +1,62 @@
+@import "~scss/variables";
+
+.swag-migration-result-screen {
+    .swag-migration-result-screen__content {
+        text-align: center;
+        font-size: 12pt;
+    }
+
+    .swag-migration-result-screen__title {
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .swag-migration-result-screen__caption {
+        margin: 0 135px 24px 135px;
+        font-size: 14px;
+        color: $color-darkgray-200;
+    }
+
+    a.swag-migration-result-screen__link {
+        font-size: 12px;
+        font-weight: 600;
+        color: $color-shopware-brand-500;
+        text-decoration: none;
+    }
+
+    .swag-migration-result-screen__image {
+        height: 150px;
+        width: 100%;
+    }
+
+    .swag-migration-result-screen__image--is-last {
+        margin-bottom: 40px;
+    }
+
+    .swag-migration-result-screen__error-list-header {
+        font-weight: bold;
+        padding-top: 10px;
+        display: block;
+    }
+
+    .swag-migration-result-screen__error-list {
+        padding-left: 20px;
+    }
+
+    .swag-migration-result-screen__bubble {
+        margin: 12px auto 20px auto;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background-color: $color-emerald-50;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .swag-migration-result-screen__icon {
+        color: $color-emerald-500;
+    }
+}
