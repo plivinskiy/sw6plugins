@@ -1,0 +1,34 @@
+{% sw_extends '@Storefront/storefront/page/checkout/finish/index.html.twig' %}
+
+{% block base_header %}
+    {% sw_include '@Storefront/storefront/layout/header/header.html.twig' %}
+{% endblock %}
+
+
+{% block page_checkout_main_content %}
+    {% block page_checkout_finish %}
+        {% block page_checkout_finish_details %}
+            {% sw_include '@Storefront/storefront/page/checkout/finish/finish-details.html.twig' %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block page_checkout_aside %}
+
+{% endblock %}
+
+
+{% block base_footer %}
+    <footer class="footer-main">
+        {% block base_footer_inner %}
+            <div class="container">
+                {% sw_include '@Storefront/storefront/layout/footer/footer.html.twig' %}
+            </div>
+        {% endblock %}
+    </footer>
+
+    {#
+    {% sw_include '@Storefront/storefront/layout/footer/footer-minimal.html.twig' %}
+    #}
+{% endblock %}

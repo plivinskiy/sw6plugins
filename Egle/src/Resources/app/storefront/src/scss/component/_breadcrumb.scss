@@ -1,0 +1,24 @@
+.breadcrumb {
+    &.container {
+        padding: 0 20px;
+    }
+}
+
+.is-act-home {
+    .container-main {
+        padding: 0;
+    }
+    .breadcrumb {
+        &.container {
+            margin: 0;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .breadcrumb {
+        &.container {
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,44 @@
+
+.custom-control-input {
+    &::before {
+       box-shadow: none;
+    }
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: none;
+}
+
+.form-control {
+    font-size: 14px;
+    color: $tw-input-border-color;
+    border: 1px solid $tw-input-border-color;
+    border-radius: 10px;
+    ::-webkit-input-placeholder { color: $tw-input-border-color; font-size: 14px; }
+    ::-moz-placeholder { color: $tw-input-border-color; font-size: 14px; } /* firefox 19+ */
+    :-ms-input-placeholder { color: $tw-input-border-color; font-size: 14px; } /* ie */
+    input:-moz-placeholder { color: $tw-input-border-color; font-size: 14px; }
+}
+
+.custom-select {
+    font-size: 14px;
+    color: $sw-text-color;
+    border: 1px solid $tw-input-border-color;
+    border-radius: 10px;
+}
+
+.form-label {
+    display: none;
+}
+
+.btn-outline-secondary {
+    border-radius: 10px;
+    color: $sw-text-color-white;
+    border-color: $tw-secondary-button-color;
+    background-color: $tw-secondary-button-color;
+
+    &:hover {
+        color: $tw-secondary-button-color;
+        background-color: $sw-text-color-white;
+    }
+}

@@ -1,0 +1,47 @@
+
+.is--sidebar {
+    .filter-panel-item {
+        margin: 12px 0;
+        .filter-panel-item-toggle {
+            border: none;
+            margin: 15px 0;
+        }
+    }
+
+    .filter-panel-active-container {
+        margin: 20px 0;
+    }
+}
+
+.filter-active {
+    border: none;
+    padding-left: 0;
+}
+
+.filter-reset-all {
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+    border-radius: unset;
+
+    &.btn-outline-danger {
+        &:hover {
+            background-color: $sw-text-color-white;
+            color: $sw-text-color-red;
+        }
+    }
+}
+
+.cms-element-category-navigation {
+    margin-top: 50px;
+}
+
+.cms-block-sidebar-filter {
+    padding: 0 20px;
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-block-sidebar-filter {
+        padding: 0;
+    }
+}

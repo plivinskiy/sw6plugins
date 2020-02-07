@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/page/account/index.html.twig' %}
+
+{% block page_account_overview_profile_actions %}
+    <div class="card-actions">
+        <a href="{{ path('frontend.account.profile.page') }}"
+           title="{{ "account.overviewChangeProfile"|trans|striptags }}"
+           class="btn btn-primary">
+            {{ "account.overviewChangeProfile"|trans|sw_sanitize }}
+        </a>
+    </div>
+{% endblock %}
+
+{% block page_account_overview_payment_actions %}
+    <div class="card-actions">
+        <a href="{{ path('frontend.account.payment.page') }}"
+           title="{{ "account.overviewChangePayment"|trans|striptags }}"
+           class="btn btn-primary">
+            {{ "account.overviewChangePayment"|trans|sw_sanitize }}
+        </a>
+    </div>
+{% endblock %}

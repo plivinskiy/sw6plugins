@@ -1,0 +1,58 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+
+{% block page_checkout_cart_add_product_and_shipping %}
+
+{% endblock %}
+
+
+    {% block page_checkout_aside_actions %}
+        <div class="cart-footer-wrapper">
+            <div class="checkout-aside-action">
+                {% block page_checkout_cart_add_promotion %}
+                    <form action="{{ path('frontend.checkout.promotion.add') }}"
+                          class="cart-add-promotion"
+                          data-form-csrf-handler="true"
+                          method="post">
+
+                        {% block page_checkout_cart_add_promotion_csrf %}
+                            {{ sw_csrf('frontend.checkout.promotion.add') }}
+                        {% endblock %}
+
+                        {% block page_checkout_cart_add_promotion_forward %}
+                            <input type="hidden"
+                                   name="forwardTo"
+                                   value="frontend.checkout.cart.page">
+                        {% endblock %}
+
+                        {% block page_checkout_cart_add_promotion_input_group %}
+                        {% endblock %}
+                    </form>
+                {% endblock %}
+            </div>
+
+
+            {% block page_checkout_cart_action_proceed %}
+                <div class="checkout-aside-action">
+                    <a href="{{ path('frontend.home.page') }}"
+                       class="btn btn-secondary btn-lg btnback"
+                       title="{{ "egle.checkout.backLink"|trans|striptags }}">
+                        {{ "egle.checkout.backLink"|trans|striptags }}
+                    </a>
+
+                    {% if page.cart.price.totalPrice < 25 %}
+                        <span class="btncheckout" title="{{ "egle.checkout.cart.buybuttonText"|trans }}" style="margin:0; width: 250px;">
+                    {% endif %}
+                    <a href="{{ path('frontend.checkout.confirm.page') }}"
+                       class="btn btn-primary btn-lg btncheckout {% if page.cart.price.totalPrice < 25 %}disabled{% endif %}"
+                                title="{{ "checkout.proceedLink"|trans|striptags }}"
+                    >
+                        {{ "checkout.proceedLink"|trans|sw_sanitize }}
+                    </a>
+                    {% if page.cart.price.totalPrice < 25 %}
+                        </span>
+                    {% endif %}
+                </div>
+            {% endblock %}
+        </div>
+    {% endblock %}

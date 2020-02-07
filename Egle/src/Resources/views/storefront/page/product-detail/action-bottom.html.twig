@@ -1,0 +1,8 @@
+{% block page_product_detail_actions_bottom %}
+    <div class="actions-bottom-wrapper col-lg-12">
+        <a href="mailto:{{ "egle.detail.actionButton.mailtoEmail"|trans }}?subject={{ "egle.detail.actionButton.titletext"|trans }} {{ page.product.productNumber }} - {{ page.product.translated.name|trans }} "
+           title="{{ "egle.detail.actionButton.titletext"|trans }} {{ page.product.productNumber|trans }} - {{ page.product.translated.name|trans }} ">
+            {{ "egle.detail.actionButton.text"|trans }}
+        </a>
+    </div>
+{% endblock %}

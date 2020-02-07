@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% block page_product_detail_preparation_container %}
+        <div class="product-detail-preparation tab-pane-container">
+
+            {% block page_product_detail_preparation_content %}
+                {% block page_product_detail_preparation_content_text %}
+                    <div class="product-detail-preparation-text"
+                         itemprop="preparation">
+                        {{ page.product.translated.customFields.custom_egle_preparation|raw }}
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

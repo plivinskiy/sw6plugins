@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-cart.html.twig' %}
+
+{% block component_offcanvas_cart_actions_checkout %}
+    {% if page.cart.price.totalPrice < 25 %}
+        <span title="{{ "egle.checkout.cart.buybuttonText"|trans }}">
+    {% endif %}
+    <a href="{{ path('frontend.checkout.confirm.page') }}"
+       class="btn btn-block {% if isCartNotEmpty %}btn-primary{% else %}btn-light disabled{% endif %} {% if page.cart.price.totalPrice < 25 %}disabled{% endif %}"
+                title="{{ "checkout.proceedToCheckout"|trans|striptags }}">
+        {{ "checkout.proceedToCheckout"|trans|sw_sanitize }}
+    </a>
+    {% if page.cart.price.totalPrice < 25 %}
+        </span>
+    {% endif %}
+{% endblock %}

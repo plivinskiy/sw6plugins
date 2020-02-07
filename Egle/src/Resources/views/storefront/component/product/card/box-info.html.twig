@@ -1,0 +1,11 @@
+{% block component_product_box_info %}
+
+    <div class="info-tax">
+        {{ "egle.productbox.infoTax"|trans }}
+    </div>
+    <div class="info-attri-info">
+        {% if product.customFields.custom_egle_baseprice %}
+            {{ product.customFields.custom_egle_baseprice|trans }}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+.product-bottom {
+    margin: 60px 0;
+    .top-bar {
+        background-color: $sw-text-color-white;
+        border-top: 1px solid $tw-border-color;
+        border-bottom: 1px solid $tw-border-color;
+        padding: 20px 0;
+        .containerdefault {
+            padding: 0;
+        }
+        .header-top-bar-text {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                li {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+
+.actions-bottom-wrapper {
+    margin: 20px 0;
+    text-align: right;
+    a {
+        color: $sw-color-brand-primary;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+.caloriecalculator {
+    .calorie-calculator {
+        ul {
+            padding-left: 0;
+            li {
+                list-style: none;
+                margin-bottom: 30px;
+            }
+        }
+
+        .data-table {
+            width: 100%;
+            tbody, thead {
+                td, th {
+                    border-bottom: 1px solid $tw-border-color;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+.bmicalculatorwrapper {
+    .calorie-calculator {
+        ul {
+            padding-left: 0;
+            li {
+                list-style: none;
+                margin-bottom: 30px;
+            }
+        }
+
+        .data-table {
+            width: 100%;
+            transform: scale(0.6);
+            right: 90px;
+            position: relative;
+
+            tbody, thead {
+                td, th {
+                    border-bottom: 1px solid $tw-border-color;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .bmicalculatorwrapper {
+        .calorie-calculator {
+            .data-table {
+                transform: scale(0.9);
+                right: 30px;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .bmicalculatorwrapper {
+        .calorie-calculator {
+            .data-table {
+                transform: scale(0.97);
+                right: 10px;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .bmicalculatorwrapper {
+        .calorie-calculator {
+            .data-table {
+                transform: scale(1);
+                right: 0px;
+                position: unset;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .caloriecalculator, .bmicalculatorwrapper {
+        //margin-right: -20px;
+        //margin-left: -20px;
+    }
+}

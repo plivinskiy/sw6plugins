@@ -1,0 +1,66 @@
+@include media-breakpoint-up(lg) {
+    .top-bar {
+        background-color: #F3F3F3;
+
+        .header-top-bar-text {
+            font-size: 14px;
+            line-height: 11px;
+            font-weight: 300;
+            padding: 0 40px;
+            text-align: right;
+
+            ul {
+                display: block;
+                text-align: left;
+                margin-bottom: 0;
+                padding: 0;
+                li {
+                    display: inline-block;
+                    font-size: 14px;
+                    line-height: 11px;
+                    font-weight: 300;
+                    list-style-type: none;
+                    padding: 10px 24px 10px 0;
+
+                    .textPhonenumber {
+                        text-decoration: none;
+                        color: $sw-text-color;
+                    }
+                }
+                li:last-child {
+                    padding-right: 0;
+                }
+            }
+
+            a {
+                text-decoration: underline;
+                font-weight: bold;
+                color: $sw-text-color;
+            }
+
+            .text-red {
+                color: $sw-text-color-red;
+                font-weight: bold;
+                padding-right: 24px;
+            }
+
+            .textsmall {
+                font-size: xx-small;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .top-bar {
+        .header-top-bar-text {
+            ul {
+                text-align: right;
+                li {
+                    padding: 15px 24px 15px 0;
+                }
+            }
+        }
+    }
+}
+

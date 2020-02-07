@@ -1,0 +1,63 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/navigation.html.twig' %}
+
+
+{% block layout_main_navigation_menu %}
+    <nav class="nav main-navigation-menu containerdefault"
+         itemscope="itemscope"
+         itemtype="http://schema.org/SiteNavigationElement">
+        {% block layout_main_navigation_menu_home %}
+
+        {% endblock %}
+
+        {% block layout_main_navigation_menu_items %}
+            {% for treeItem in page.header.navigation.tree %}
+                {% set category = treeItem.category %}
+                {% set name = category.translated.name %}
+                {% set categorId = category.id %}
+
+                {% block layout_main_navigation_menu_item %}
+                    {% if category.type == 'folder' %}
+                        <div class="nav-link main-navigation-link"
+                                {% if treeItem.children|length > 0 %}
+                                    data-flyout-menu-trigger="{{ categorId }}"
+                                {% endif %}
+                             title="{{ name }}">
+                            <div class="main-navigation-link-text">
+                                <span itemprop="name">{{ name }}</span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="nav-item-wrapper">
+                            <a class="nav-link main-navigation-link{% if categorId is same as(page.header.navigation.active.id) %} active{% endif %}"
+                               href="{% if category.externalLink %}{{ category.externalLink }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: categorId }) }}{% endif %}"
+                               itemprop="url"
+                                    {% if treeItem.children|length > 0 %}
+                                        data-flyout-menu-trigger="{{ categorId }}"
+                                    {% endif %}
+                               title="{{ name }}">
+                                <div class="main-navigation-link-text">
+                                    <span itemprop="name">{{ name }}</span>
+                                </div>
+                            </a>
+
+                            {% if treeItem.children|length > 0 %}
+                                <div class="navigation-flyout {% if category.autoIncrement >= 5 %}reverse-{{ category.autoIncrement }} {% else %} noreverse-{{ category.autoIncrement }} {% endif %}"
+                                     data-flyout-menu-id="{{ categorId }}">
+                                    <div class="containerneu">
+                                        {% sw_include '@Storefront/storefront/layout/navigation/flyout.html.twig' with {navigationTree: treeItem, level: level+1} only %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            {% endfor %}
+        {% endblock %}
+    </nav>
+{% endblock %}
+
+
+{% block layout_main_navigation_menu_flyout_wrapper %}
+
+{% endblock %}
+

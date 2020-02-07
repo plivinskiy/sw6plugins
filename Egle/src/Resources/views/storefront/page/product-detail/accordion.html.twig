@@ -1,0 +1,115 @@
+{% block page_product_detail_accordion_inner %}
+    <div class="accordion-wrapper" id="accordion">
+
+        {% if page.product.translated.description is not empty %}
+            <div class="card">
+                <button id="headingDescription"
+                        class="btn btn-link card-header"
+                        data-toggle="collapse"
+                        data-target="#collapseDescription"
+                        aria-expanded="true"
+                        aria-controls="collapseDescription">
+                    {{ "detail.tabsDescription"|trans|sw_sanitize }}
+                    <i class="icon-chevron"></i>
+                </button>
+
+
+                <div id="collapseDescription"
+                     class="collapse show"
+                     aria-labelledby="headingDescription"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/description.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+
+        <div class="card">
+            <button id="headingReviews"
+                    class="btn btn-link collapsed card-header"
+                    data-toggle="collapse"
+                    data-target="#collapseReviews"
+                    aria-expanded="false"
+                    aria-controls="collapseReviews">
+                {{ "detail.tabsReview"|trans|sw_sanitize }}
+                <i class="icon-chevron"></i>
+            </button>
+
+            <div id="collapseReviews" class="collapse" aria-labelledby="headingReviews" data-parent="#accordion">
+                <div class="card-body">
+                    {% sw_include '@Storefront/storefront/page/product-detail/review/review.html.twig' with {'reviews': page.reviews} %}
+                </div>
+            </div>
+        </div>
+
+
+        {% if(page.product.translated.customFields.custom_egle_nutritional_info is not empty or page.product.translated.customFields.custom_egle_ingredients is not empty) %}
+            <div class="card {% if page.product.translated.customFields.custom_egle_recipes is empty and page.product.translated.customFields.custom_egle_preparation is empty %}last{% endif %}">
+                <button id="headingIngredients"
+                        class="btn btn-link collapsed card-header"
+                        data-toggle="collapse"
+                        data-target="#collapseIngredients"
+                        aria-expanded="false"
+                        aria-controls="collapseIngredients">
+                    {{ "egle.detail.tabsIngredients"|trans|sw_sanitize }}
+                    <i class="icon-chevron"></i>
+                </button>
+
+                <div id="collapseIngredients"
+                     class="collapse"
+                     aria-labelledby="headingIngredients"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/ingredients.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if page.product.translated.customFields.custom_egle_recipes is not empty %}
+            <div class="card {% if page.product.translated.customFields.custom_egle_preparation is empty %}last{% endif %}">
+                <button id="headingRecipes"
+                        class="btn btn-link collapsed card-header"
+                        data-toggle="collapse"
+                        data-target="#collapseRecipes"
+                        aria-expanded="false"
+                        aria-controls="collapseRecipes">
+                    {{ "egle.detail.tabsRecipes"|trans|sw_sanitize }}
+                    <i class="icon-chevron"></i>
+                </button>
+
+                <div id="collapseRecipes" class="collapse" aria-labelledby="collapseRecipes" data-parent="#accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/recipes.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if page.product.translated.customFields.custom_egle_preparation is not empty %}
+            <div class="card last">
+                <button id="headingPreparation"
+                        class="btn btn-link collapsed card-header"
+                        data-toggle="collapse"
+                        data-target="#collapsePreparation"
+                        aria-expanded="false"
+                        aria-controls="collapsePreparation">
+                    {{ "egle.detail.tabsPreparation"|trans|sw_sanitize }}
+                    <i class="icon-chevron"></i>
+                </button>
+
+                <div id="collapsePreparation"
+                     class="collapse"
+                     aria-labelledby="collapsePreparation"
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        {% sw_include '@Storefront/storefront/page/product-detail/preparation.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

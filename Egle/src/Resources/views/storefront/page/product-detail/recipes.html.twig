@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% block page_product_detail_recipes_container %}
+        <div class="product-detail-recipes tab-pane-container">
+
+            {% block page_product_detail_recipes_content %}
+                {% block page_product_detail_recipes_content_text %}
+                    <div class="product-detail-recipes-text"
+                         itemprop="recipes">
+                        {{ page.product.translated.customFields.custom_egle_recipes|raw }}
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

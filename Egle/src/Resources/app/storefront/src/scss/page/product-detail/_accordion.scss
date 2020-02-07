@@ -1,0 +1,62 @@
+.product-detail-accordion {
+    .accordion-wrapper {
+        .card {
+            &.last {
+                border-bottom: 1px solid $tw-border-color;
+            }
+            .btn-link {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: none;
+                }
+                &.card-header {
+                    background-color: $sw-text-color-white;
+                    border-radius: unset;
+                    border-top: 1px solid $tw-border-color;
+                    padding: 30px 0;
+                    font-weight: 700;
+                    line-height: 1;
+                    color: $tw-background-color-newsletter;
+                    text-align: left;
+                    font-size: 16px;
+                    .icon-chevron {
+                        float:right;
+                        margin-right: 30px;
+                        background-image: url("#{$tw-assetPath}/icons/icon-tab-current.png");
+                    }
+                }
+                &.collapsed {
+                    color: $sw-text-color;
+                    .icon-chevron {
+                        background-image: url("#{$tw-assetPath}/icons/icon-tab.png");
+                    }
+                }
+            }
+            .card-body {
+                padding-bottom: 36px;
+                button {
+                    &.offcanvas-close {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .product-detail-accordion {
+        .accordion-wrapper {
+            .card {
+                .card-body {
+                    .product-detail-ingredients {
+                        .product-detail-nutritionalinfo-text {
+                            float: left;
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

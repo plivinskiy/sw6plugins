@@ -1,0 +1,107 @@
+//class must be integrated in Kategorie-Layout - image-text-Element
+.category-topinfo {
+    min-height: 300px;
+    .col-md-6 {
+        max-width: 100%;
+        flex: unset;
+
+        .cms-element-text {
+            z-index: 10;
+            max-width: 100%;
+            position: unset;
+            padding: 0 20px;
+            h1 {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .cms-element-image {
+            top: -30px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            padding: 0 20px;
+
+            .cms-image-container.is-cover {
+                .cms-image {
+                    height: auto;
+                    object-fit: unset;
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
+
+.cms-element-category-navigation {
+    display: none;
+}
+
+@include media-breakpoint-up(680px) {
+    .category-topinfo {
+        min-height: 325px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .category-topinfo {
+        min-height: 250px;
+        .col-md-6 {
+            .cms-element-text {
+                position: absolute;
+                max-width: 50%;
+                padding: 0 20px;
+            }
+
+            .cms-element-image {
+                top: -30px;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                padding: 0;
+
+                .cms-image-container.is-cover {
+                    .cms-image {
+                        width: unset;
+                        padding: 0 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-section-sidebar-main-content {
+        padding-right: 0;
+    }
+
+    .cms-element-category-navigation {
+        display: block;
+    }
+
+    .category-topinfo {
+        min-height: 300px;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .category-topinfo {
+        min-height: 300px;
+        .col-md-6 {
+            .cms-element-text {
+                padding: 0;
+            }
+
+            .cms-element-image {
+                .cms-image-container.is-cover {
+                    .cms-image {
+                        width: 100%;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}

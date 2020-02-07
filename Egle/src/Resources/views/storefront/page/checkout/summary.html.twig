@@ -1,0 +1,20 @@
+{% sw_extends '@Storefront/storefront/page/checkout/summary.html.twig' %}
+
+{% block page_checkout_summary %}
+    {{ parent() }}
+
+    {% block page_checkout_summary_hint %}
+        {% if page.cart %}
+            {% set summary = page.cart %}
+        {% elseif page.order %}
+            {% set summary = page.order %}
+        {% endif %}
+
+        {% if summary.price.totalPrice <= 65 %}
+            <div class="checkout-aside-summary-hint">
+                {{ "egle.checkout.cart.summary.hint"|trans }}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+{% endblock %}

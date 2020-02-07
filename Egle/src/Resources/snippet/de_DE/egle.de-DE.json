@@ -1,0 +1,78 @@
+{
+    "egle": {
+        "header": {
+            "freeShippingText": "+++ VERSANDKOSTENFREI bestellen ab 20 Euro Bestellwert - 20 Jahre Online-Shop + 10 % Weihnachts-Rabatt +++",
+            "linkLink": "https://www.egle.de/order/sheet",
+            "linkTitleText": "Einfach und direkt aus dem Katalog heraus bestellen",
+            "linkText": "zur Direktbestellung",
+            "truckText": "Versandkostenfrei ab 65 € ",
+            "truckTextsmall": "darunter nur 3,90",
+            "boxText": "Sicherer Kauf auf Rechnung",
+            "truckPhone": "Kundenhotline",
+            "textPhonenumber": "07302-8121",
+            "AccountText": "Mein Konto",
+            "CartText": "Warenkorb",
+            "mobileMenuText": "Menü"
+        },
+        "productbox": {
+            "linkText": "zum Produkt",
+            "infoTax": "inkl. MwSt. zzgl. Versandkosten"
+        },
+        "breadcrumb": {
+            "home": "Startseite"
+        },
+        "footer": {
+            "fNewsletterHeadline": "Newsletter",
+            "newsletterLink": "Zum Anmeldeformular",
+            "newsletterHeadliine": "Alle Angebote und Neuigkeiten direkt in Ihrem Posteingang.",
+            "newslettertext1": "Abonnieren Sie jetzt die Egle-Neuigkeiten!",
+            "newslettertext2": "Natürlich erhalten Sie unseren Newsletter völlig kostenlos und ganz unverbindlich.",
+            "newsletterInputPlaceholder": "Geben Sie hier Ihre E-Mail-Adresse ein",
+            "newsletterButton": "Anmelden",
+            "payments1": "Kauf auf Rechnung",
+            "payments2": "Bankeinzug",
+            "paymentsshipping": "Versand",
+            "paymentsshippingLink": "",
+            "hotlineHeadline": "Wilhelm Egle GmbH",
+            "hotlineStreet": "Hauptstraße 47",
+            "hotlinePlz": "89284 Pfaffenhofen",
+            "hotlineTel": "Telefon: 07302-8121",
+            "hotlineFax": "Fax: 07302-8150",
+            "hotlineWeb": "Web: http://www.egle.de",
+            "hotlineEmail": "Email: kontakt@egle.de",
+            "hotlineCEO": "Geschäftsführer:",
+            "hotlineCEOName": "Andrea Müller, Jürgen Knecht",
+            "hotlineCompany": "Reg. Ger.: Memmingen HRB 6630",
+            "facebookText": "Folgen Sie Uns",
+            "facebookLink": "https://www.facebook.com/EgleLebensmittel/"
+        },
+        "newsletter": {
+            "text1": "Wir freuen uns, dass Sie sich für unseren Newsletter anmelden möchten.",
+            "text2": "Als kleines Dankeschön für Ihre Anmeldung erhalten Sie",
+            "text3": "10 % Rabatt auf Ihre nächste Bestellung",
+            "text4": "- diesen schicken wir Ihnen per Email zu, sobald Sie Ihre Anmeldung bestätigt haben."
+        },
+        "register": {
+            "extraEmailText": "Soweit Sie nicht widersprochen haben, nutzen wir Ihre E-Mail-Adresse, die wir im Rahmen des Verkaufes einer Ware oder Dienstleistung erhalten haben für die elektronische Übersendung von Werbung für eigene Waren oder Dienstleistungen, die denen ähnlich sind, die Sie bereits bei uns erworben haben. Sie können dieser Verwendung Ihrer E-Mail-Adresse jederzeit durch eine Mitteilung an uns widersprechen. Die Kontaktdaten für die Ausübung des Widerspruchs finden Sie im Impressum. Sie können auch den dafür vorgesehenen Link in der Werbemail nutzen. Hierfür entstehen keine anderen als die Übermittlungskosten nach den Basistarifen."
+        },
+        "checkout": {
+            "backLink": "Zurück zum Shop",
+            "cart": {
+                "summary": {
+                    "hint": "Ab 65,00 € Bestellwert liefern wir versandkostenfrei!"
+                },
+                "buybuttonText": "Der Mindestbestellwert von 25,00 € wurde noch nicht erreicht."
+            }
+        },
+        "detail": {
+            "tabsIngredients": "Nährwerte & Zutaten",
+            "tabsRecipes": "Rezepte",
+            "tabsPreparation": "Zubereitung",
+            "actionButton": {
+               "text": "Fragen zum Produkt",
+                "titletext": "Ich habe eine Frage zum Produkt",
+                "mailtoEmail": "kontakt@egle.de"
+            }
+        }
+    }
+}

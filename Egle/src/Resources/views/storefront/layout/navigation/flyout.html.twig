@@ -1,0 +1,58 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/flyout.html.twig' %}
+
+
+{% block layout_navigation_flyout %}
+    {% block layout_navigation_flyout_bar %}
+
+    {% endblock %}
+
+    {% block layout_navigation_flyout_content %}
+        <div class="navigation-flyout-content">
+            {% block layout_navigation_flyout_categories %}
+                <div class="navigation-flyout-block {% if navigationTree.category.media %}{% else %}col{% endif %}">
+                    <div class="navigation-flyout-categories">
+                        {% block layout_navigation_flyout_categories_recoursion %}
+                            {% sw_include '@Storefront/storefront/layout/navigation/categories.html.twig' with {
+                                navigationTree: navigationTree.children,
+                                navigationMedia: navigationTree.category.media
+                            } only %}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block layout_navigation_flyout_wrapper %}
+                <a class="navigation-flyout-teaser-image-container"
+                   href="{{ seoUrl('frontend.navigation.page', { navigationId: navigationTree.category.id }) }}"
+                   title="{{ navigationTree.category.translated.name }}">
+                    {% block layout_navigation_flyout_teaser %}
+                        {% if navigationTree.category.media %}
+                            {% block layout_navigation_flyout_teaser_image %}
+                                {% sw_thumbnails 'navigation-flyout-teaser-image-thumbnails' with {
+                                    media: navigationTree.category.media,
+                                    sizes: {
+                                        'default': '310px'
+                                    },
+                                    attributes: {
+                                        'class': 'navigation-flyout-teaser-imagenew',
+                                        'alt': (navigationTree.category.media.translated.alt ?: ''),
+                                        'title': (navigationTree.category.media.translated.title ?: ''),
+                                        'data-object-fit': 'cover'
+                                    }
+                                } %}
+                            {% endblock %}
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block layout_navigation_flyout_description %}
+                        {% if navigationTree.category.description %}
+                            <div class="navigation-flyout-description">
+                                {{ navigationTree.category.description|trans|raw }}
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+                </a>
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

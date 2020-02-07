@@ -1,0 +1,188 @@
+.card-title {
+    border-bottom: 1px solid $tw-border-color;
+    font-size: 24px;
+}
+
+.cart-item {
+    border-bottom: 1px solid $tw-border-color;
+}
+
+.checkout-aside-summary {
+    background-color: $sw-text-color-white;
+}
+
+.cart-footer-wrapper {
+    width: 100%;
+    border-top: 1px solid $tw-border-color;
+    display: block;
+}
+
+.checkout-aside-action {
+    padding: 0 20px;
+    .btn {
+        width: 100%;
+    }
+    .btncheckout, .btnback {
+        margin: 20px 0 0;
+    }
+}
+
+.cart-item-img {
+    border: none;
+}
+
+.is-act-cartpage {
+    .checkout {
+        .checkout-container {
+            margin: 0;
+        }
+        .checkout-aside {
+            .checkout-aside-summary {
+                text-align: right;
+                .checkout-aside-summary-header {
+                    display: none;
+                }
+                .checkout-aside-summary-hint {
+                    color: $sw-color-brand-primary;
+                    font-weight: 600;
+                    margin: 20px 0;
+                }
+                .checkout-aside-summary-total {
+                    color: $sw-color-brand-primary;
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .card-title {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .cart-item-img {
+        border: none;
+    }
+    .offcanvas-cart {
+        .cart-item-img {
+            width: 75px;
+        }
+    }
+    .btn-sm {
+        padding: 0;
+    }
+    .product-detail-tax-link {
+        font-size: 10px;
+    }
+    .cart-item-label {
+        font-size: 16px;
+        font-family: "Playfair Display", "Times New Roman", sans-serif;
+        font-weight: 600;
+        padding: 0 0 10px 0;
+    }
+    .cart-item-ordernumber, .product-detail-grundpreis {
+        font-size: 14px;
+    }
+    .product-detail-grundpreis {
+        margin-top: 10px;
+    }
+    .btn {
+        .icon-x {
+            svg {
+                color: $sw-color-brand-primary;
+                top: -2px;
+            }
+        }
+    }
+}
+
+.js-offcanvas-cart-promotion {
+    .btn-secondary {
+        .icon {
+            color: $sw-color-brand-primary;
+            &:hover {
+                color: $sw-text-color-white;
+            }
+        }
+    }
+}
+
+.product-detail-cross-selling {
+    .card {
+        margin-top: 100px;
+    }
+    .card-tabs {
+        .card-body {
+            padding-top: 0;
+        }
+        .nav-link {
+            font-size: 30px;
+            font-weight: 700;
+            font-style: normal;
+            line-height: 1.1;
+            font-family: "Playfair Display", "Times New Roman", sans-serif;
+            border: none;
+            &.active {
+                background-color: transparent;
+            }
+        }
+    }
+
+}
+
+@include media-breakpoint-up(md) {
+    .is-act-cartpage {
+        .checkout {
+            .checkout-aside {
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                display: contents;
+                width: 100%;
+                .checkout-aside-summary {
+                    max-width: 33.33333%;
+                    margin-left: 66.66666%;
+                }
+            }
+            .checkout-main {
+                margin-bottom: 0;
+            }
+        }
+        .cart-item-img {
+            max-width: 100%;
+        }
+        .cart-item-info-img {
+            width: 25%;
+        }
+        .btn-sm {
+            padding: 2px 12px;
+        }
+    }
+    .checkout-aside-action {
+        .btn {
+            max-width: 250px;
+        }
+        .btncheckout {
+            float: right;
+        }
+    }
+    .cart-item {
+        padding: 35px 0;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .is-act-cartpage {
+        .checkout {
+            .checkout-container {
+                margin: 0 -20px;
+            }
+        }
+        .cart-item-info-img {
+            width: 25%;
+        }
+        .cart-item-img {
+            border: none;
+            width: 136px;
+            max-width: unset;
+        }
+    }
+}

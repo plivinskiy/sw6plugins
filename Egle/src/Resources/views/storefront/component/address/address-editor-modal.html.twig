@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/component/address/address-editor-modal.html.twig' %}
+
+{% block component_address_address_editor_modal_accordion_action_list %}
+    {% if AvailableAddressCount > 0 %}
+        <div class="col-12 col-md-6">
+            <div class="btn btn-primary btn-block address-editor-select"
+                 data-toggle="collapse"
+                 data-target="#address-list">
+                {{ "account.selectAddress"|trans|sw_sanitize }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block component_address_address_editor_modal_accordion_action_create %}
+    <div class="col-12 col-md-6">
+        <div class="btn btn-primary btn-block address-editor-create collapsed"
+             data-toggle="collapse"
+             data-target="#address-create-new">
+            {{ "account.addressCreateBtn"|trans|sw_sanitize }}
+        </div>
+    </div>
+{% endblock %}

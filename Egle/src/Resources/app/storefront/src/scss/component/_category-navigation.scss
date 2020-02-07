@@ -1,0 +1,47 @@
+.category-navigation {
+    padding-left: 0px;
+}
+
+.category-navigation-link {
+    padding: 8px 0;
+}
+
+.filter-panel-item-dropdown {
+    overflow: hidden;
+    max-height: 500px;
+}
+
+.filter-panel-item {
+    border-bottom: 1px solid #bbb;
+
+    .filter-panel-item-toggle {
+        font-size: 14px;
+        font-weight: 700;
+        padding: 2px 0;
+    }
+}
+
+.filter-multi-select-list-item {
+    padding: 5px 0;
+}
+
+.filter-multi-select-item-label {
+    font-size: 14px;
+}
+
+.is--sidebar {
+    .filter-panel-item-dropdown {
+        border: none;
+    }
+
+    .filter-panel-item-toggle {
+        &[aria-expanded='true'] {
+            color: $sw-color-price;
+            border: none;
+
+            svg {
+                color: $sw-color-price;
+            }
+        }
+    }
+}

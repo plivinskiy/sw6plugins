@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/product/card/badges.html.twig' %}
+
+        {% block component_product_badges_new %}
+            {% if product.isNew %}
+                <div class="badge badge-success badge-new">
+
+                </div>
+            {% endif %}
+        {% endblock %}

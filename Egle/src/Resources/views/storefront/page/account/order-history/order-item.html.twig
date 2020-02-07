@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/page/account/order-history/order-item.html.twig' %}
+
+{% block page_account_order_item_actions_value %}
+    <form action="{{ path('widgets.account.order.detail', { id: order.id }) }}"
+          class="order-detail-form"
+          method="get"
+          data-form-ajax-submit="true"
+          data-form-ajax-submit-options='{
+                "replaceSelectors": ".js-order-detail-container-{{ order.id }}",
+                "submitOnce": true
+          }'>
+        <button class="btn btn-primary btn-sm order-hide-btn collapsed"
+                type="submit"
+                data-toggle="collapse"
+                data-target="#order{{ order.orderNumber }}"
+                aria-expanded="false"
+                aria-controls="collapseExample">
+            {% block page_account_order_item_actions_value_text %}
+                <span class="order-hide-btn-text">{{ "account.orderActionHide"|trans|sw_sanitize }}</span>
+                <span class="order-view-btn-text">{{ "account.orderActionView"|trans|sw_sanitize }}</span>
+            {% endblock %}
+        </button>
+    </form>
+{% endblock %}

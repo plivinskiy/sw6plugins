@@ -1,0 +1,64 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/headline.html.twig' %}
+
+
+{% block page_product_detail_headline_inner %}
+    {% block page_product_detail_name_container %}
+        <div class="col product-detail-name-container">
+            {% block page_product_detail_name %}
+                <h1 class="product-detail-name"
+                    itemprop="name">
+                    {{ page.product.translated.name }}
+                </h1>
+            {% endblock %}
+        </div>
+    {% endblock %}
+
+    {% block page_product_detail_reviews %}
+        {% if page.reviews|length > 0 and shopware.config.detail.showReviews %}
+            <p class="product-detail-reviews">
+                {% sw_include '@Storefront/storefront/component/review/rating.html.twig' with {
+                    points: page.product.ratingAverage,
+                    style: 'text-primary'
+                } %}
+                <a data-toggle="tab"
+                   class="product-detail-reviews-link"
+                   data-offcanvas-tabs="true"
+                   data-remote-click="true"
+                   data-remote-click-options='{
+                                        "selector": "#review-tab",
+                                        "scrollToElement": true
+                                    }'
+                   href="#review-tab-pane"
+                   aria-controls="review-tab-pane">
+                    {{ page.reviews.totalReviews}}
+                    {{ "detail.reviewLinkText"|trans({'%count%': page.reviews.totalReviews})|sw_sanitize }}
+                </a>
+            </p>
+        {% endif %}
+    {% endblock %}
+
+    {% block page_product_detail_ordernumber_container %}
+        {% if page.product.productNumber %}
+            <div class="product-detail-ordernumber-container">
+                {% block page_product_detail_ordernumber_label %}
+                    <span class="product-detail-ordernumber-label">
+                            {{ "detail.ordernumberLabel"|trans|sw_sanitize }}
+                        </span>
+                {% endblock %}
+
+                {% block page_product_detail_ordernumber %}
+                    <meta itemprop="productID"
+                          content="{{ page.product.id }}"/>
+                    <span class="product-detail-ordernumber"
+                          itemprop="sku">
+                            {{ page.product.productNumber }}
+                        </span>
+                {% endblock %}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    {% block page_product_detail_manufacturer %}
+
+    {% endblock %}
+{% endblock %}

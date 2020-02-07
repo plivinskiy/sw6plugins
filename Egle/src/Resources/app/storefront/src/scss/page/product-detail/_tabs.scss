@@ -1,0 +1,11 @@
+
+@include media-breakpoint-up(md) {
+    .product-detail-tabs-content {
+        .product-detail-ingredients {
+            .product-detail-nutritionalinfo-text {
+                float: left;
+                width: 50%;
+            }
+        }
+    }
+}

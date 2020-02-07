@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/checkout/offcanvas-item.html.twig' %}
+
+{% block component_offcanvas_product_remove_submit %}
+    <button type="submit"
+            title="{{ "checkout.removeLineItem"|trans|striptags }}"
+            class="btn">
+        {% sw_icon 'x' style { 'size': 'sm' } %}
+    </button>
+{% endblock %}

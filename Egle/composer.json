@@ -1,0 +1,25 @@
+{
+  "name": "tagwork/theme-egle",
+  "description": "Egle Theme",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "version": "v1.0.0",
+  "authors": [
+    {
+      "name": "tagwork-one GmbH"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Egle\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Egle\\Egle",
+    "label": {
+      "de-DE": "Theme Egle plugin",
+      "en-GB": "Theme Egle plugin"
+    },
+    "plugin-icon": "menu-icon.png"
+  }
+}

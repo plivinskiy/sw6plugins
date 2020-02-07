@@ -1,0 +1,23 @@
+{% sw_extends '@Storefront/storefront/utilities/offcanvas.html.twig' %}
+
+{% block utilities_offcanvas_content %}
+    {% block page_product_detail_ingredients_container %}
+        <div class="product-detail-ingredients tab-pane-container">
+
+            {% block page_product_detail_ingredients_content %}
+                {% block page_product_detail_nutritional_info_content_text %}
+                    <div class="product-detail-nutritionalinfo-text"
+                         itemprop="nutritionalinfo">
+                        {{ page.product.translated.customFields.custom_egle_nutritional_info|raw }}
+                    </div>
+                {% endblock %}
+                {% block page_product_detail_ingredients_content_text %}
+                    <div class="product-detail-ingredients-text"
+                         itemprop="ingredients">
+                        {{ page.product.translated.customFields.custom_egle_ingredients|raw }}
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,56 @@
+/*
+ * tagwork new vars and styles
+ * ----------------------- */
+@import "tagwork/vars";
+@import "tagwork/global";
+@import "tagwork/home";
+@import "tagwork/calculators";
+@import "tagwork/category";
+
+
+/*
+ * Variables, Mixins, Functions
+ * ---------------------------- */
+//@import 'variables';
+
+/*
+ * Components
+ * ---------- */
+//@import 'component/card';
+@import "component/base-slider";
+@import "component/breadcrumb";
+@import "component/cart";
+@import "component/category-navigation";
+@import "component/cms-sections";
+@import "component/filter-panel";
+@import "component/forms";
+@import "component/icon";
+@import "component/product-box";
+
+/*
+ * Layout-related sections
+ * ----------------------- */
+@import "layout/account-menu";
+@import "layout/alerts";
+@import 'layout/container';
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main-navigation";
+@import "layout/navigation-flyout";
+@import 'layout/top-bar';
+@import "layout/fontawesome";
+
+/*
+ * page
+ * --------------------- */
+@import "page/newsletter/newsletter";
+@import "page/checkout/checkout";
+@import "page/account/register";
+@import "page/product-detail/accordion";
+@import "page/product-detail/product-bottom";
+@import "page/product-detail/product-detail";
+@import "page/product-detail/tabs";
+@import "page/search/search";
+
+
+

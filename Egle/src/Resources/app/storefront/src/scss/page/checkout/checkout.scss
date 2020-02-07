@@ -1,0 +1,104 @@
+.is-ctl-checkout {
+    .header-search {
+        display: none;
+    }
+    .containerdefault {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+    .btn-light {
+        color: $sw-text-color-white;
+        background-color: $sw-color-brand-primary;
+        border-radius: 10px;
+        &:hover {
+            color: $sw-color-brand-primary;
+            background-color: $sw-text-color-white;
+        }
+    }
+}
+
+.is-act-checkoutregisterpage {
+    .checkout {
+        .checkout-aside {
+            display: none !important;
+        }
+        .checkout-main {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    .containerdefault {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .page_checkout_login_wrapper {
+        margin: 40px 0;
+        .register-login-collapse-toogle {
+            height: 30px;
+        }
+    }
+}
+
+.is-ctl-checkout {
+    .checkout-aside-summary-header {
+        color: $sw-headline-color;
+    }
+    .checkout-aside-summary {
+        .checkout-aside-summary-header {
+            display: none;
+        }
+        .checkout-aside-summary-hint {
+            color: $sw-color-brand-primary;
+        }
+        .checkout-aside-summary-total {
+            color: $sw-color-brand-primary;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .is-act-confirmpage {
+        .checkout {
+            .checkout-aside {
+                margin-left: 66.66666%;
+            }
+        }
+    }
+    .is-ctl-checkout {
+        .checkout {
+            .checkout-main {
+                margin-left: 0;
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+        }
+    }
+    .is-act-finishpage {
+        .checkout {
+            .checkout-aside {
+                margin-left: 67%;
+            }
+            .card-title {
+                font-size: 20px;
+            }
+            .card-body {
+                margin: 20px 0;
+                .cart-header-row {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .is-act-cartpage {
+        .checkout {
+            .checkout-aside {
+                margin-left: 66.66666%;
+                max-width: 33.33333%;
+                flex: 0 0 33.33333%;
+            }
+        }
+    }
+}

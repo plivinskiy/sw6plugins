@@ -1,0 +1,2 @@
+Grundkonfig für theme.json:
+/vendor/shopware/platform/src/Storefront/Resources/theme.json

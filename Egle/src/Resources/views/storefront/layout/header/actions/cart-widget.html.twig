@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/layout/header/actions/cart-widget.html.twig' %}
+
+{% block layout_header_actions_cart_widget %}
+    <span class="header-cart-icon">
+        <i class="icon icon-cart"><img alt="icon-cart" src="{{ asset('assets/icons/icon-cart.png', '@Egle') }}" /></i>
+        <span class="label">{{ "egle.header.CartText"|trans }}</span>
+    </span>
+    {% if page.cart.lineItems|length > 0 %}
+        <span class="badge badge-primary header-cart-badge">{{ page.cart.lineItems|length }}</span>
+    {% endif %}
+{% endblock %}

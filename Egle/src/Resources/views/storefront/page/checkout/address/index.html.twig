@@ -1,0 +1,45 @@
+{% sw_extends '@Storefront/storefront/page/checkout/address/index.html.twig' %}
+
+{% block base_header %}
+    {% sw_include '@Storefront/storefront/layout/header/header.html.twig' %}
+{% endblock %}
+
+
+{% block page_checkout_main_content %}
+    {% block page_checkout_address %}
+        {% block page_checkout_address_header %}
+            <h1 class="address-main-header">
+                {{ "checkout.addressHeader"|trans|sw_sanitize }}
+            </h1>
+        {% endblock %}
+
+        <div class="page_checkout_login_wrapper">
+            {% block page_checkout_address_login_toggle %}
+                <div class="register-login-collapse-toogle">
+                    <i class="icon icon-avatar"><img alt="icon-avatar" src="{{ asset('assets/icons/icon-customer.png', '@Egle') }}" /></i>
+                    <a href="#loginCollapse"
+                       class="login-collapse-toggle"
+                       data-toggle="collapse"
+                       aria-expanded="false">
+                        <strong>{{ "checkout.addressLoginToggle"|trans|sw_sanitize }}</strong> </a>
+                </div>
+            {% endblock %}
+
+            {% block page_checkout_address_login %}
+                <div class="collapse" id="loginCollapse">
+                    {% block page_checkout_address_login_card %}
+                        {% sw_include '@Storefront/storefront/component/account/login.html.twig' %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block page_checkout_address_register %}
+            {% block page_checkout_address_register_card %}
+                {% sw_include '@Storefront/storefront/page/checkout/address/register.html.twig' with {
+                    'cardTitle': "checkout.addressRegisterCardTitle"|trans|sw_sanitize
+                } %}
+            {% endblock %}
+        {% endblock %}
+    {% endblock %}
+{% endblock %}

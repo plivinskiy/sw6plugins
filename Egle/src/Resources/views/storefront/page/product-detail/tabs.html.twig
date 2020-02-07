@@ -1,0 +1,167 @@
+{% block page_product_detail_tabs_inner %}
+
+    <div class="card card-tabs">
+        {% block page_product_detail_tabs_navigation %}
+            <div class="card-header product-detail-tab-navigation">
+                {% block page_product_detail_tabs_navigation_container %}
+                    <ul class="nav nav-tabs product-detail-tab-navigation-list"
+                        id="product-detail-tabs"
+                        role="tablist">
+                        {% block page_product_detail_tabs_navigation_description %}
+                            <li class="nav-item">
+                                <a class="nav-link {% if (ratingSuccess != 1) and (ratingSuccess != -1) %}active{% endif %} product-detail-tab-navigation-link"
+                                   id="description-tab"
+                                   data-toggle="collapse"
+                                   data-offcanvas-tabs="true"
+                                   href="#description-tab-pane"
+                                   role="tab"
+                                   aria-controls="description-tab-pane"
+                                   aria-selected="true">
+                                    <span>{{ "detail.tabsDescription"|trans|sw_sanitize }}</span>
+                                    <span class="product-detail-tab-navigation-icon">
+                                        {% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+                                    </span>
+                                    {% if page.product.translated.description|length > 0 %}
+                                        <span class="product-detail-tab-preview">
+                                            {{ page.product.translated.description|raw|striptags|u.truncate(125) }}
+
+                                            {# truncate always cuts down the length to 125 characters.
+                                               So it will only shorten the string if it exceeds 125 chars.
+                                               Therefor, only show the button when the length of the text is
+                                               greater or equal then 126 characters. #}
+                                            {% if page.product.translated.description|length >= 126 %}
+                                                <span class="product-detail-tab-preview-more">{{ "detail.tabsPreviewMore"|trans|sw_sanitize }}</span>
+                                            {% endif %}
+                                        </span>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endblock %}
+                        {% block page_product_detail_tabs_navigation_review %}
+                            {% if shopware.config.detail.showReviews %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if (ratingSuccess == 1) or (ratingSuccess == -1) %}active{% endif %} product-detail-tab-navigation-link"
+                                       id="review-tab"
+                                       data-toggle="tab"
+                                       data-offcanvas-tabs="true"
+                                       href="#review-tab-pane"
+                                       role="tab"
+                                       aria-controls="review-tab-pane"
+                                       aria-selected="true">
+                                        {{ "detail.tabsReview"|trans|sw_sanitize }}
+                                        <span class="product-detail-tab-navigation-icon">
+                                            {% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endblock %}
+                        {% block page_product_detail_tabs_navigation_ingredients %}
+                            <li class="nav-item">
+                                <a class="nav-link product-detail-tab-navigation-link"
+                                   id="ingredients-tab"
+                                   data-toggle="tab"
+                                   data-offcanvas-tabs="true"
+                                   href="#ingredients-tab-pane"
+                                   role="tab"
+                                   aria-controls="ingredients-tab-pane"
+                                   aria-selected="true">
+                                    {{ "egle.detail.tabsIngredients"|trans|sw_sanitize }}
+                                    <span class="product-detail-tab-navigation-icon">
+                                            {% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+                                        </span>
+                                </a>
+                            </li>
+                        {% endblock %}
+                        {% block page_product_detail_tabs_navigation_recipes %}
+                            <li class="nav-item">
+                                <a class="nav-link product-detail-tab-navigation-link"
+                                   id="recipes-tab"
+                                   data-toggle="tab"
+                                   data-offcanvas-tabs="true"
+                                   href="#recipes-tab-pane"
+                                   role="tab"
+                                   aria-controls="recipes-tab-pane"
+                                   aria-selected="true">
+                                    {{ "egle.detail.tabsRecipes"|trans|sw_sanitize }}
+                                    <span class="product-detail-tab-navigation-icon">
+                                            {% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+                                        </span>
+                                </a>
+                            </li>
+                        {% endblock %}
+                        {% block page_product_detail_tabs_navigation_preparation %}
+                            <li class="nav-item">
+                                <a class="nav-link product-detail-tab-navigation-link"
+                                   id="preparation-tab"
+                                   data-toggle="tab"
+                                   data-offcanvas-tabs="true"
+                                   href="#preparation-tab-pane"
+                                   role="tab"
+                                   aria-controls="preparation-tab-pane"
+                                   aria-selected="true">
+                                    {{ "egle.detail.tabsPreparation"|trans|sw_sanitize }}
+                                    <span class="product-detail-tab-navigation-icon">
+                                            {% sw_icon 'arrow-medium-right' style {'pack':'solid'} %}
+                                        </span>
+                                </a>
+                            </li>
+                        {% endblock %}
+                    </ul>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block page_product_detail_tabs_content %}
+            <div class="product-detail-tabs-content card-body">
+                {% block page_product_detail_tabs_content_container %}
+                    <div class="tab-content">
+                        {% block page_product_detail_tabs_content_description %}
+                            <div class="tab-pane fade show {% if (ratingSuccess != 1) and (ratingSuccess != -1) %}active{% endif %}"
+                                 id="description-tab-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="description-tab">
+                                {% sw_include '@Storefront/storefront/page/product-detail/description.html.twig' %}
+                            </div>
+                        {% endblock %}
+
+                        {% block page_product_detail_tabs_content_review %}
+                            {% if shopware.config.detail.showReviews %}
+                                <div class="tab-pane fade show {% if (ratingSuccess == 1) or (ratingSuccess == -1) %}active{% endif %}"
+                                     id="review-tab-pane"
+                                     role="tabpanel"
+                                     aria-labelledby="review-tab">
+                                    {% sw_include '@Storefront/storefront/page/product-detail/review/review.html.twig' with {'reviews': page.reviews} %}
+                                </div>
+                            {% endif %}
+                        {% endblock %}
+                        {% block page_product_detail_tabs_content_ingredients %}
+                            <div class="tab-pane fade show"
+                                 id="ingredients-tab-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="ingredients-tab">
+                                {% sw_include '@Storefront/storefront/page/product-detail/ingredients.html.twig' %}
+                            </div>
+                        {% endblock %}
+                        {% block page_product_detail_tabs_content_recipes %}
+                            <div class="tab-pane fade show"
+                                 id="recipes-tab-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="recipes-tab">
+                                {% sw_include '@Storefront/storefront/page/product-detail/recipes.html.twig' %}
+                            </div>
+                        {% endblock %}
+                        {% block page_product_detail_tabs_content_preparation %}
+                            <div class="tab-pane fade show"
+                                 id="preparation-tab-pane"
+                                 role="tabpanel"
+                                 aria-labelledby="preparation-tab">
+                                {% sw_include '@Storefront/storefront/page/product-detail/preparation.html.twig' %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

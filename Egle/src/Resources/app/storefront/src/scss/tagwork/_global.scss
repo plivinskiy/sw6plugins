@@ -1,0 +1,90 @@
+.btn {
+    &:focus, &.focus {
+        box-shadow: none;
+    }
+}
+
+.btn-primary, .order-item-detail-reorder-btn {
+    border-radius: 10px;
+    &:hover {
+        color: $sw-text-color;
+        background-color: $sw-text-color-white;
+        border-color: $sw-text-color;
+        .icon {
+            color: $sw-color-brand-primary;
+        }
+    }
+    &:disabled {
+        &:hover {
+            opacity: 1;
+            background: #eee;
+            border-color: #eee;
+            color: #bcc1c7;
+        }
+    }
+}
+
+.btn-secondary {
+    border-radius: 10px;
+    color: $sw-color-brand-primary;
+    background-color: $sw-text-color-white;
+
+    &:hover {
+        color: $sw-text-color-white;
+        background-color: $sw-color-brand-primary
+    }
+}
+
+h1.center {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h2, h3 {
+    color: $sw-text-color;
+}
+
+:focus {
+    outline: none;
+}
+
+.is-act-home {
+    .container-main {
+        background-color: $tw-home-background-color;
+    }
+    .cms-section {
+        .boxed {
+            max-width: unset;
+            padding: 0;
+        }
+    }
+}
+
+.fullwidthcenteredwhite {
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+@include media-breakpoint-up(lg) {
+    .fullwidthcentered {
+        margin: 0 auto;
+        max-width: 1024px;
+    }
+    .fullwidthcenteredwhite {
+        .cms-block-container {
+            margin: 0 auto;
+            max-width: 1024px;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .fullwidthcentered {
+        max-width: 1240px;
+    }
+    .fullwidthcenteredwhite {
+        .cms-block-container {
+            max-width: 1240px;
+        }
+    }
+}

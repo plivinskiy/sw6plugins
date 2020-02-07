@@ -1,0 +1,41 @@
+{% sw_extends '@Storefront/storefront/component/listing/breadcrumb.html.twig' %}
+
+{% block component_listing_breadcrumb %}
+    {% set breadcrumb = category.buildSeoBreadcrumb(context.salesChannel.navigationCategoryId) %}
+
+
+    {% if breadcrumb %}
+        <div class="breadcrumb-container">
+            <a class="breadcrumb-home"
+               href="{{ path('frontend.home.page') }}">
+                {{ "egle.breadcrumb.home"|trans }}
+            </a>
+            <div class="breadcrumb-placeholder">
+                /
+            </div>
+        </div>
+    {% endif %}
+
+    {% for key, item in breadcrumb %}
+        <div class="breadcrumb-container">
+            {% if item != "Footer" %}
+                {% block component_listing_breadcrumb_category %}
+                    <a class="{% if key is same as(category.id) %} is-active{% endif %}"
+                       href="{{ seoUrl('frontend.navigation.page', { navigationId: key }) }}">
+                        {% block component_listing_breadcrumb_link_name %}
+                            {{ item }}
+                        {% endblock %}
+                    </a>
+                {% endblock %}
+                {% block component_listing_breadcrumb_placeholder %}
+                    {% if item != breadcrumb|last %}
+                        <div class="breadcrumb-placeholder">
+                            /
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}
+

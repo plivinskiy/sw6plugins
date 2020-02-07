@@ -1,0 +1,30 @@
+{% sw_extends '@Storefront/storefront/layout/navigation/categories.html.twig' %}
+
+            {% block layout_navigation_categories_item %}
+                <div class="{% if level == 0 %}{% if navigationMedia %} col-12 {% else %}col-3 {% endif %}{% endif %}navigation-flyout-col">
+                    {% block layout_navigation_categories_item_link %}
+                        {% if treeItem.category.type == 'folder' %}
+                            <div class="nav-item nav-link navigation-flyout-link is-level-{{ level }}"
+                                 title="{{ name }}">
+                                <span itemprop="name">{{ name }}</span>
+                            </div>
+                        {% else %}
+                            <a class="nav-item nav-link navigation-flyout-link is-level-{{ level }}{% if id is same as(activeId) %} active{% endif %}"
+                               href="{% if link %}{{ link }}{% else %}{{ seoUrl('frontend.navigation.page', { navigationId: id }) }}{% endif %}"
+                               itemprop="url"
+                               title="{{ name }}">
+                                <span itemprop="name">{{ name }}</span>
+                            </a>
+                        {% endif %}
+                    {% endblock %}
+
+                    {% block layout_navigation_categories_recoursion %}
+                        {% if level < navigationMaxDepth %}
+                            {% sw_include '@Storefront/storefront/layout/navigation/categories.html.twig' with {
+                                navigationTree: treeItem.children,
+                                level: level + 1
+                            } only %}
+                        {% endif %}
+                    {% endblock %}
+                </div>
+            {% endblock %}

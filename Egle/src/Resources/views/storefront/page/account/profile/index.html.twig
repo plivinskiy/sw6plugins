@@ -1,0 +1,25 @@
+{% sw_extends '@Storefront/storefront/page/account/profile/index.html.twig' %}
+
+{% block page_account_profile_personal_action_button_send %}
+    <button type="submit"
+            class="profile-form-submit btn btn-primary btn-sm"
+            title="{{ "account.profileSaveChanges"|trans|striptags }}">
+        {{ "account.profileSaveChanges"|trans|sw_sanitize }}
+    </button>
+{% endblock %}
+
+{% block page_account_profile_mail_action_button_send %}
+    <button type="submit"
+            class="profile-form-submit btn btn-primary btn-sm"
+            title="{{ "account.profileSaveChanges"|trans|striptags }}">
+        {{ "account.profileSaveChanges"|trans|sw_sanitize }}
+    </button>
+{% endblock %}
+
+{% block page_account_profile_password_action_button_send %}
+    <button type="submit"
+            class="profile-form-submit btn btn-primary btn-sm"
+            title="{{ "account.profileSaveChanges"|trans|striptags }}">
+        {{ "account.profileSaveChanges"|trans|sw_sanitize }}
+    </button>
+{% endblock %}

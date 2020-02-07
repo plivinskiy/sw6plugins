@@ -1,0 +1,41 @@
+.container {
+    max-width: 100%;
+    padding: 0;
+    .containerdefault {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+}
+
+.is-act-loginpage, .is-act-recoveraccountform, .is-ctl-accountprofile, .is-ctl-address,
+.is-ctl-accountpayment, .is-ctl-accountorder, .is-act-cartpage  {
+    .content-main {
+        .container {
+            padding-top: 30px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .cms-section-sidebar.cms-section-sidebar-mobile-wrap.boxed.row {
+        padding: 0 20px;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .container-main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .is-act-home {
+        .container-main {
+            max-width: 100%;
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+    }
+
+    .cms-section-sidebar.cms-section-sidebar-mobile-wrap.boxed.row {
+        padding: 0;
+    }
+}

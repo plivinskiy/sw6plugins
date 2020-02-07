@@ -1,0 +1,219 @@
+{
+    "name": "Egle Theme",
+    "author": "Tagwork one",
+    "description": {
+        "en-GB": "Egle theme for Shopware 6",
+        "de-DE": "Egle Theme für Shopware 6"
+    },
+    "previewMedia": "app/storefront/src/assets/themepreview.png",
+    "views": [
+        "@Storefront",
+        "@Plugins",
+        "@Egle"
+    ],
+    "style": [
+        "@Storefront",
+        "app/storefront/src/scss/base.scss"
+    ],
+    "script": [
+        "@Storefront",
+        "app/storefront/dist/storefront/js/calculators/jquery.number.js",
+        "app/storefront/dist/storefront/js/calculators/calories.js",
+        "app/storefront/dist/storefront/js/calculators/bmi.js"
+    ],
+    "asset": [
+        "app/storefront/src/assets"
+    ],
+    "config": {
+        "fields": {
+            "sw-color-brand-primary": {
+                "label": {
+                    "en-GB": "Primary colour",
+                    "de-DE": "Primärfarbe"
+                },
+                "type": "color",
+                "value": "#135541",
+                "editable": true,
+                "block": "themeColors",
+                "order": 100
+            },
+            "sw-border-color": {
+                "label": {
+                    "en-GB": "Border",
+                    "de-DE": "Rahmen"
+                },
+                "type": "color",
+                "value": "#f3f3f3",
+                "editable": true,
+                "block": "themeColors",
+                "order": 300
+            },
+            "sw-color-success": {
+                "label": {
+                    "en-GB": "Success",
+                    "de-DE": "Erfolg"
+                },
+                "type": "color",
+                "value": "#135541",
+                "editable": true,
+                "block": "statusColors",
+                "order": 100
+            },
+            "sw-color-info": {
+                "label": {
+                    "en-GB": "Information",
+                    "de-DE": "Information"
+                },
+                "type": "color",
+                "value": "#bccf02",
+                "editable": true,
+                "block": "statusColors",
+                "order": 200
+            },
+            "sw-font-family-base": {
+                "label": {
+                    "en-GB": "Fonttype text",
+                    "de-DE": "Schriftart Text"
+                },
+                "type": "fontFamily",
+                "value": "'Open Sans',Verdana,Arial,sans-serif",
+                "editable": true,
+                "block": "typography",
+                "order": 100
+            },
+            "sw-text-color": {
+                "label": {
+                    "en-GB": "Text colour",
+                    "de-DE": "Textfarbe"
+                },
+                "type": "color",
+                "value": "#323232",
+                "editable": true,
+                "block": "typography",
+                "order": 200
+            },
+            "sw-font-family-headline": {
+                "label": {
+                    "en-GB": "Fonttype headline",
+                    "de-DE": "Schriftart Überschrift"
+                },
+                "type": "fontFamily",
+                "value": "'Playfair Display','Times New Roman',sans-serif",
+                "editable": true,
+                "block": "typography",
+                "order": 300
+            },
+            "sw-headline-color": {
+                "label": {
+                    "en-GB": "Headline colour",
+                    "de-DE": "Überschriftfarbe"
+                },
+                "type": "color",
+                "value": "#135541",
+                "editable": true,
+                "block": "typography",
+                "order": 400
+            },
+            "sw-color-price": {
+                "label": {
+                    "en-GB": "Price",
+                    "de-DE": "Preis"
+                },
+                "type": "color",
+                "value": "#323232",
+                "editable": true,
+                "block": "eCommerce",
+                "order": 100
+            },
+            "sw-color-buy-button": {
+                "label": {
+                    "en-GB": "Buy button",
+                    "de-DE": "Kaufen-Button"
+                },
+                "type": "color",
+                "value": "#135541",
+                "editable": true,
+                "block": "eCommerce",
+                "order": 200
+            },
+            "sw-color-buy-button-text": {
+                "label": {
+                    "en-GB": "Buy button text",
+                    "de-DE": "Kaufen-Button Text"
+                },
+                "type": "color",
+                "value": "#fff",
+                "editable": true,
+                "block": "eCommerce",
+                "order": 300
+            },
+            "sw-logo-desktop": {
+                "label": {
+                    "en-GB": "Desktop",
+                    "de-DE": "Desktop"
+                },
+                "helpText": {
+                    "en-GB": "Displayed for viewports of above 991px",
+                    "de-DE": "Wird über einem Viewport von 991px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/eglelogo2019.png",
+                "editable": true,
+                "block": "media",
+                "order": 100
+            },
+            "sw-logo-tablet": {
+                "label": {
+                    "en-GB": "Tablet",
+                    "de-DE": "Tablet"
+                },
+                "helpText": {
+                    "en-GB": "Displayed between a viewport of 767px to 991px",
+                    "de-DE": "Wird zwischen einem viewport von 767px bis 991px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/eglelogo2019.png",
+                "editable": true,
+                "block": "media",
+                "order": 200
+            },
+            "sw-logo-mobile": {
+                "label": {
+                    "en-GB": "Mobile",
+                    "de-DE": "Mobil"
+                },
+                "helpText": {
+                    "en-GB": "Displayed up to a viewport of 767px",
+                    "de-DE": "Wird bis zu einem Viewport von 767px angezeigt"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/eglelogo2019.png",
+                "editable": true,
+                "block": "media",
+                "order": 300
+            },
+            "sw-logo-share": {
+                "label": {
+                    "en-GB": "App & share icon",
+                    "de-DE": "App- & Share-Icon"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/favicon.png",
+                "editable": true,
+                "block": "media",
+                "order": 400
+            },
+            "sw-logo-favicon": {
+                "label": {
+                    "en-GB": "Favicon",
+                    "de-DE": "Favicon"
+                },
+                "type": "media",
+                "value": "app/storefront/src/assets/logo/faviconegle.png",
+                "editable": true,
+                "block": "media",
+                "order": 500
+            }
+        }
+    }
+}

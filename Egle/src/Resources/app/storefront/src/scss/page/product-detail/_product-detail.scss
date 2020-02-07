@@ -1,0 +1,184 @@
+
+.is-ctl-product {
+    main {
+        .container {
+            .container-main {
+                padding: 20px;
+            }
+            background-color: #EEEDEA;
+            .product-detail {
+                background-color: #FFF;
+                padding: 20px 20px 50px 20px;
+            }
+            .product-breadcrumb {
+                margin: 16px 0 36px 0;
+            }
+        }
+    }
+    .product-detail-price {
+        font-size: 25px;
+    }
+    .product-detail-main {
+        .gallery-slider {
+            border: 1px solid $tw-productbox-border-color;
+        }
+        .gallery-slider-thumbnails-item-inner {
+            border: 1px solid $tw-productbox-border-color;
+        }
+        .gallery-slider-item {
+            &.is-cover {
+                .gallery-slider-image {
+                    object-fit: contain;
+                    -o-object-fit: contain;
+                }
+            }
+        }
+        .magnifier-zoom-image {
+            top: -135px;
+        }
+    }
+}
+
+.product-detail-list-price-wrapper {
+    color: $tw-text-color-dark;
+    line-height: 37.5px;
+    height: 34px;
+    padding-left: 25px;
+    .list-price-price {
+        font-size: 18px;
+    }
+}
+
+.product-detail-buy {
+    &.detail-buy-wrapper {
+        padding-left: 20px;
+    }
+
+    .product-detail-headline {
+        .product-detail-name-container {
+            padding: 0;
+            .product-detail-name {
+                font-family: "Playfair Display", "Times New Roman", sans-serif;
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 1.1;
+                margin: 0 0 15px;
+                color: $tw-text-color-dark;
+            }
+        }
+        .product-detail-reviews {
+            margin: 0;
+            font-size: 12px;
+            .icon-xs {
+                width: 13px;
+                height: 15px;
+            }
+        }
+        .product-detail-ordernumber-container {
+            font-size: 14px;
+            .product-detail-ordernumber-label {
+                font-weight: 400;
+            }
+        }
+    }
+    .product-detail-price-container {
+
+    }
+    .product-detail-tax-container {
+        font-size: 10px;
+    }
+    .product-baseprice {
+
+    }
+    .product-shortdescription {
+        border-top: 1px solid #BBB;
+        margin: 40px 0;
+        padding-top: 30px;
+    }
+}
+
+.product-detail-tabs {
+    margin-bottom: 60px;
+    .cms-element-product-slider {
+        .tns-ovh {
+            padding: 0;
+        }
+
+        .product-slider {
+            &.has-nav {
+                padding: 0;
+            }
+            .product-slider-controls-container {
+                display: none;
+            }
+        }
+
+        .product-box {
+            border: none;
+            margin: 30px auto 15px;
+            &:hover {
+                -webkit-box-shadow: 0 0 40px 0 #D9D9D9;
+                -moz-box-shadow: 0 0 40px 0 #D9D9D9;
+                box-shadow: 0 0 40px 0 #D9D9D9;
+                .product-action, .pbox-link {
+                    display: none;
+                }
+                .product-action-slider {
+                    display: block;
+                    margin: 20px auto 0;
+                    .pbox-link {
+                        opacity: 1;
+                        position: unset;
+                        transform: none;
+                        display: block;
+                    }
+                }
+            }
+            .product-action-slider {
+                display: block;
+                margin: 20px auto 0;
+                .pbox-link {
+                    opacity: 1;
+                    position: unset;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .is-ctl-product {
+        main {
+            .container {
+                .product-detail {
+                    padding: 40px 40px 60px;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .is-ctl-product {
+        main {
+            .container {
+                .container-main {
+                    padding: 20px 0;
+                }
+                .product-detail {
+                    padding: 52px 82px 50px 52px;
+                }
+                .product-breadcrumb {
+                    margin: 16px 0 36px 0;
+                }
+            }
+        }
+    }
+    .product-detail-buy {
+        &.detail-buy-wrapper {
+            padding-left: 40px;
+        }
+    }
+}
+

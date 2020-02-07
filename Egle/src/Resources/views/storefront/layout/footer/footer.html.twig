@@ -1,0 +1,281 @@
+{% block layout_footer_inner_container %}
+
+    {% block layout_footer_newsletter_block %}
+        <div class="footer-newsletter-wrapper">
+            <div class="footer-newsletter-wrapper-inner">
+                <div class="footer-newsletter-content">
+                    <div class="newsletter-title">
+                        <span>
+                            {{ 'egle.footer.newsletterHeadliine'|trans }}
+                        </span>
+                    </div>
+                    <div class="newsletter-text">
+                        <span>{{ 'egle.footer.newslettertext1'|trans }}</span>
+                        <span>{{ 'egle.footer.newslettertext2'|trans }}</span>
+                    </div>
+                    <div class="newsletter-action-wrapper col-xl-12">
+                        <input class="input-newsletter col-xl-8" type="email" name="email" id="newsletter" title="Geben Sie hier Ihre E-Mail-Adresse ein" placeholder="{{ 'egle.footer.newsletterInputPlaceholder'|trans }}" />
+                        <a data-toggle="modal" data-url="{{  path('frontend.cms.page', { id: shopware.config.core.basicInformation.newsletterPage }) }}" href="{{  path('frontend.cms.page', { id: shopware.config.core.basicInformation.newsletterPage }) }}" type="submit" title="Abonnieren" class="btn btn-block btn-buy col-xl-3">{{ 'egle.footer.newsletterButton'|trans }}</a>
+                    </div>
+                </div>
+                <img alt="newsletter-image"
+                     class="newsletter-image"
+                     src="{{ asset('assets/footer/background-apple.png', '@Egle') }}" />
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block layout_footer_payment_shipping_logos %}
+        <div class="footer-logos">
+            <div class="footer-logos-wrapper">
+                <div class="footer-payments">
+                    <ul>
+                        <li>{{ 'egle.footer.payments1'|trans }}</li>
+                        <li>{{ 'egle.footer.payments2'|trans }}</li>
+                        <li><a title="Versand" href="{{ 'egle.footer.paymentsshippingLink'|trans }}">{{ 'egle.footer.paymentsshipping'|trans }}</a></li>
+                        <li>
+                            {% if context.salesChannel.translated.name == "Egle AT" %}
+                                <img alt="DHL" class="dhllogo dhlat" src="{{ asset('assets/footer/Post-Oesterreich-Logo.png', '@Egle') }}" />
+                            {% else %}
+                                <img alt="DHL" class="dhllogo" src="{{ asset('assets/footer/DHL_Logo.svg', '@Egle') }}" />
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+                <img alt="bio" class="footer-logos-image" src="{{ asset('assets/footer/bioSiegel.svg', '@Egle') }}" />
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block layout_footer_navigation %}
+        <div class="footerColumns-wrapper">
+            <div id="footerColumns"
+                 class="row footer-columns"
+                 data-collapse-footer="true">
+
+                <div class="footer-logo">
+                    <img src="{{ asset('assets/footer/logo_footer.png', '@Egle') }}" alt="footer-logo" />
+                </div>
+
+                {% block layout_footer_navigation_hotline %}
+                    <div class="col-md-3">
+                        <div class="footer-column js-footer-column">
+                            {% block layout_footer_navigation_hotline_headline %}
+                                <div class="footer-column-headline footer-headline js-footer-column-headline js-collapse-footer-column-trigger"
+                                     id="collapseFooterHotlineTitle"
+                                     data-target="#collapseFooterHotline"
+                                     aria-expanded="true"
+                                     aria-controls="collapseFooterHotline">
+                                    <span class="footer-headline-text">{{ 'egle.footer.hotlineHeadline'|trans }}</span>
+                                    {% block layout_footer_navigation_hotline_icons %}
+                                        <div class="footer-column-toggle">
+                                    <span class="footer-plus-icon">
+                                        {% sw_icon 'plus' %}
+                                    </span>
+                                            <span class="footer-minus-icon">
+                                        {% sw_icon 'minus' %}
+                                    </span>
+                                        </div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+
+                            {% block layout_footer_navigation_hotline_content %}
+                                <div id="collapseFooterHotline"
+                                     class="footer-column-content collapse js-footer-column-content footer-contact"
+                                     aria-labelledby="collapseFooterHotlineTitle">
+                                    <div class="footer-column-content-inner">
+                                        <p>
+                                            <span>{{ 'egle.footer.hotlineStreet'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlinePlz'|trans }}</span>
+                                        </p>
+                                        <p>
+                                            <span>{{ 'egle.footer.hotlineTel'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlineFax'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlineWeb'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlineEmail'|trans }}</span>
+                                        </p>
+                                        <p>
+                                            <span>{{ 'egle.footer.hotlineCEO'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlineCEOName'|trans }}</span><br>
+                                            <span>{{ 'egle.footer.hotlineCompany'|trans }}</span>
+                                        </p>
+                                    </div>
+                                    <!--
+                                    <div class="footer-column-content-inner">
+                                        <p class="footer-contact-hotline">
+                                            {{ 'footer.serviceHotline'|trans|sw_sanitize }}
+                                        </p>
+                                    </div>
+                                    -->
+                                    <!--
+                                    <div class="footer-contact-form">
+                                        {{ 'footer.serviceContactLink'|trans({
+                                        '%url%': path('frontend.cms.page', { id: shopware.config.core.basicInformation.contactPage })|sw_sanitize
+                                    })|raw }}
+                                    </div>
+                                    -->
+                                </div>
+                            {% endblock %}
+                        </div>
+                    </div>
+                {% endblock %}
+
+                {% block layout_footer_navigation_columns %}
+                    {% for root in page.footer.navigation.tree %}
+                        {% if loop.index == 1 or loop.index == 3 %}
+                            <div class="col-md-3">
+                        {% endif %}
+                        {% block layout_footer_navigation_column %}
+                            <div class="footer-column js-footer-column">
+                                {% block layout_footer_navigation_information_headline %}
+                                    <div class="footer-column-headline footer-headline js-collapse-footer-column-trigger"
+                                         data-target="#collapseFooterTitle{{ loop.index }}"
+                                         aria-expanded="true"
+                                         aria-controls="collapseFooter{{ loop.index }}">
+
+                                        <span class="footer-headline-text">{{ root.category.translated.name }}</span>
+                                        {% block layout_footer_navigation_information_icons %}
+                                            <div class="footer-column-toggle">
+                                            <span class="footer-plus-icon">
+                                                {% sw_icon 'plus' %}
+                                            </span>
+                                                <span class="footer-minus-icon">
+                                                {% sw_icon 'minus' %}
+                                            </span>
+                                            </div>
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+
+                                {% block layout_footer_navigation_information_content %}
+                                    <div id="collapseFooter{{ loop.index }}"
+                                         class="footer-column-content collapse js-footer-column-content"
+                                         aria-labelledby="collapseFooterTitle{{ loop.index }}">
+                                        <div class="footer-column-content-inner">
+                                            {% block layout_footer_navigation_information_links %}
+                                                <ul class="list-unstyled">
+                                                    {% for treeItem in root.children %}
+                                                        {% block layout_footer_navigation_information_link_item %}
+                                                            <li class="footer-link-item">
+                                                                {% block layout_footer_navigation_information_link %}
+                                                                    <a class="footer-link"
+                                                                       href="{{ seoUrl('frontend.navigation.page', { navigationId: treeItem.category.id }) }}"
+                                                                       title="{{ treeItem.category.translated.name }}">
+                                                                        {{ treeItem.category.translated.name }}
+                                                                    </a>
+                                                                {% endblock %}
+                                                            </li>
+                                                        {% endblock %}
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endblock %}
+                                        </div>
+                                    </div>
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                        {% if loop.index == 2 or loop.index == 4 %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="col-md-3">
+                        <div class="footer-column js-footer-column">
+                            {% block layout_footer_navigation_newsletter_headline %}
+                                <div class="footer-column-headline footer-headline js-collapse-footer-column-trigger"
+                                     data-target="#collapseFooterTitle4{{ loop.index }}"
+                                     aria-expanded="true"
+                                     aria-controls="collapseFooter4{{ loop.index }}">
+
+                                    <span class="footer-headline-text">{{ 'egle.footer.fNewsletterHeadline'|trans }}</span>
+                                    {% block layout_footer_navigation_newsletter_icons %}
+                                        <div class="footer-column-toggle">
+                                            <span class="footer-plus-icon">
+                                                {% sw_icon 'plus' %}
+                                            </span>
+                                            <span class="footer-minus-icon">
+                                                {% sw_icon 'minus' %}
+                                            </span>
+                                        </div>
+                                    {% endblock %}
+                                </div>
+                            {% endblock %}
+
+                            {% block layout_footer_navigation_newsletter_content %}
+                                <div id="collapseFooter4{{ loop.index }}"
+                                     class="footer-column-content collapse js-footer-column-content"
+                                     aria-labelledby="collapseFooterTitle4{{ loop.index }}">
+                                    <div class="footer-column-content-inner">
+                                        {% block layout_footer_navigation_newsletter_links %}
+                                            <ul class="list-unstyled">
+                                                {% block layout_footer_navigation_newsletter_link_item %}
+                                                    <li class="footer-link-item">
+                                                        {{ 'egle.footer.newsletterLink'|trans({
+                                                            '%url%': path('frontend.cms.page', { id: shopware.config.core.basicInformation.newsletterPage })
+                                                        })|raw }}
+                                                    </li>
+                                                {% endblock %}
+                                            </ul>
+                                        {% endblock %}
+                                    </div>
+                                </div>
+                            {% endblock %}
+                        </div>
+
+                        <div class="footer-column footer-facebook">
+                            <strong>{{ 'egle.footer.facebookText'|trans }}</strong>
+                            <a href="{{ 'egle.footer.facebookLink'|trans }}"><i class="iconegle-facebook"></i></a>
+                        </div>
+
+                        {% block layout_footer_trustedbadge %}
+                            <div class="trustedbadge-wrapper">
+                                {% sw_include '@Storefront/storefront/layout/footer/trustedbadge.html.twig' %}
+                            </div>
+                        {% endblock %}
+
+
+                        {% block layout_footer_bottom %}
+                            <div class="footer-bottom">
+                                {% block layout_footer_vat %}
+                                    <div class="footer-vat">
+                                        {% if context.taxState == "gross" %}
+                                            <p>{{ "footer.includeVat"|trans|sw_sanitize }}</p>
+                                        {% else %}
+                                            <p>{{ "footer.excludeVat"|trans|sw_sanitize }}</p>
+                                        {% endif %}
+                                    </div>
+                                {% endblock %}
+
+                                {% block layout_footer_service_menu %}
+                                    <div class="container">
+                                        {% block layout_footer_service_menu_content %}
+                                            <ul class="footer-service-menu-list list-unstyled">
+                                                {% for serviceMenuItem in page.header.serviceMenu %}
+                                                    {% block layout_footer_service_menu_item %}
+                                                        <li class="footer-service-menu-item">
+                                                            <a class="footer-service-menu-link"
+                                                               href="{{ seoUrl('frontend.navigation.page', { navigationId: serviceMenuItem.id }) }}"
+                                                               title="{{ serviceMenuItem.translated.name }}">
+                                                                {{ serviceMenuItem.translated.name }}
+                                                            </a>
+                                                        </li>
+                                                    {% endblock %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+
+                                {% block layout_footer_copyright %}
+
+                                {% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

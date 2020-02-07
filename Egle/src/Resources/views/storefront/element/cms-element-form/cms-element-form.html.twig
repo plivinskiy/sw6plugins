@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-form/cms-element-form.html.twig' %}
+
+
+                            {% block element_form_newsletter_form_title %}
+                                <div class="card-title mb-4">
+                                    {% if element.config.title.value %}
+                                        {{ element.config.title.value }}
+                                    {% else %}
+                                        {{ "newsletter.headline"|trans }}
+                                        <div class="newsletter-text">
+                                            <p>{{ "egle.newsletter.text1"|trans }}</p>
+                                            <p>{{ "egle.newsletter.text2"|trans }} <b>{{ "egle.newsletter.text3"|trans }}</b> {{ "egle.newsletter.text4"|trans }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endblock %}

@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/component/address/address-editor-modal-list.html.twig' %}
+
+{% block component_address_address_editor_modal_list_address_action_billing_form_button %}
+    <button type="submit"
+            title="{{ "account.addressesSetAsDefaultBillingAction"|trans|striptags }}"
+            class="btn btn-block btn-primary btn-sm">
+        {% block component_address_address_editor_modal_list_address_action_billing_form_button_text %}
+            {{ "account.addressesSetAsDefaultBillingAction"|trans|sw_sanitize }}
+        {% endblock %}
+    </button>
+{% endblock %}
+
+{% block component_address_address_editor_modal_list_address_action_shipping_form_button %}
+    <button type="submit"
+            title="{{ "account.addressesSetAsDefaultShippingAction"|trans|striptags }}"
+            class="btn btn-block btn-primary btn-sm">
+        {% block component_address_address_editor_modal_list_address_action_shipping_form_text %}
+            {{ "account.addressesSetAsDefaultShippingAction"|trans|sw_sanitize }}
+        {% endblock %}
+    </button>
+{% endblock %}

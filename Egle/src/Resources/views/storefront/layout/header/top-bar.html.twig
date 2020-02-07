@@ -1,0 +1,31 @@
+{% sw_extends '@Storefront/storefront/layout/header/top-bar.html.twig' %}
+
+{% block layout_header_top_bar %}
+    <div class="top-bar d-none d-lg-block">
+        <div class="containerdefault header-top-bar-text">
+            <ul>
+                <!-- <li class="text-red">{{ "egle.header.freeShippingText"|trans }}</span> -->
+                <li class="top-bar-text-item">
+                    <i class="icon icon-truck"><img alt="icon-truck" src="{{ asset('assets/icons/icon-truck.png', '@Egle') }}" /></i>
+                    {{ "egle.header.truckText"|trans }}
+                    <span class="textsmall">{{ "egle.header.truckTextsmall"|trans }}</span>
+                </li>
+                <li class="top-bar-text-item">
+                    <i class="icon icon-box"><img alt="icon-box" src="{{ asset('assets/icons/icon-box.png', '@Egle') }}" /></i>
+                    {{ "egle.header.boxText"|trans }}
+                </li>
+                <li class="top-bar-text-item">
+                    <i class="icon icon-phone"><img alt="icon-phone" src="{{ asset('assets/icons/icon-phone.png', '@Egle') }}" /></i>
+                    {{ "egle.header.truckPhone"|trans }}
+                    <a href="tel:{{ "egle.header.textPhonenumber"|trans }}"
+                       class="textPhonenumber">{{ "egle.header.textPhonenumber"|trans }}</a>
+                </li>
+                <li class="top-bar-text-item">
+                    <i class="icon icon-bill"><img alt="icon-bill" src="{{ asset('assets/icons/icon-bill.png', '@Egle') }}" /></i>
+                    <a href="{{ "egle.header.linkLink"|trans }}"
+                       title="{{ "egle.header.linkTitleText"|trans }}">{{ "egle.header.linkText"|trans }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

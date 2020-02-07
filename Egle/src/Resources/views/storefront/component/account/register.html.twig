@@ -1,0 +1,31 @@
+{% sw_extends '@Storefront/storefront/component/account/register.html.twig' %}
+
+                                {% block component_account_register_personal_account_fields %}
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            {{ formGroupMail }}
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            {% if shopware.config.core.loginRegistration.requireEmailConfirmation %}
+                                                {{ formGroupMailConfirmation }}
+                                            {% elseif not shopware.config.core.loginRegistration.requirePasswordConfirmation %}
+                                                {{ formGroupPassword }}
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            {% if shopware.config.core.loginRegistration.requireEmailConfirmation or shopware.config.core.loginRegistration.requirePasswordConfirmation %}
+                                                {{ formGroupPassword }}
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            {% if shopware.config.core.loginRegistration.requirePasswordConfirmation %}
+                                                {{ formGroupPasswordConfirmation }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <span class="emailtext">
+                                            {{ "egle.register.extraEmailText"|trans  }}
+                                        </span>
+                                    </div>
+                                {% endblock %}
