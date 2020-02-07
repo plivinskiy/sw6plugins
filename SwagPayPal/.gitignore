@@ -1,0 +1,6 @@
+.idea/
+coverage/
+.phpunit.result.cache
+vendor/
+src/Resources/public/administration/swag-pay-pal.*.hot-update.js
+phpstan.neon
